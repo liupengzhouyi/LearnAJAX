@@ -7,6 +7,9 @@
         <element id="directory" name="classes">
           <element id="module-output" name="LearnAJAX" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: Arquillian JUnit:Release" />
+        </element>
       </element>
     </root>
   </artifact>
