@@ -11,6 +11,9 @@
           <element id="library" level="project" name="Maven: Arquillian JUnit:Release" />
           <element id="library" level="project" name="standard" />
           <element id="library" level="project" name="jstl" />
+          <element id="library" level="project" name="xalan" />
+          <element id="library" level="project" name="xml-apis-1.4.01" />
+          <element id="library" level="project" name="xercesImpl" />
         </element>
       </element>
     </root>

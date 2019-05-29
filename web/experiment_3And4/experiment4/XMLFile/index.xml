@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<books>
+    <book>
+        <name>Padam History</name>
+        <author>ZARA</author>
+        <price>100</price>
+    </book>
+    <book>
+        <name>Great Mistry</name>
+        <author>NUHA</author>
+        <price>2000</price>
+    </book>
+    <book>
+        <name>我的游记</name>
+        <author>刘鹏</author>
+        <price>200</price>
+    </book>
+    <book>
+        <name>西游戏</name>
+        <author>六小龄童</author>
+        <price>200000</price>
+    </book>
+</books>

@@ -49,5 +49,8 @@
     </orderEntry>
     <orderEntry type="library" exported="" name="jstl" level="project" />
     <orderEntry type="library" exported="" name="standard" level="project" />
+    <orderEntry type="library" exported="" name="xalan" level="project" />
+    <orderEntry type="library" exported="" name="xercesImpl" level="project" />
+    <orderEntry type="library" exported="" name="xml-apis-1.4.01" level="project" />
   </component>
 </module>
