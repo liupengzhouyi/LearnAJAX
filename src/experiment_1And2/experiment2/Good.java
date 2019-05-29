@@ -13,7 +13,7 @@ public class Good {
     private String shelvesDate = null;
     // 保质期
     private int monthNumber = -1;
-    // 生成日期
+    // 生产日期
     private String productData = null;
     // 下架日期
     private String eliminateDate = null;
@@ -90,5 +90,37 @@ public class Good {
 
     public void setKey(int key) {
         this.key = key;
+    }
+
+    @Override
+    public String toString() {
+        return "Good{" +
+                "goodID='" + goodID + '\'' +
+                ", goodRigin='" + goodRigin + '\'' +
+                ", goodPrice=" + goodPrice +
+                ", goodName='" + goodName + '\'' +
+                ", shelvesDate='" + shelvesDate + '\'' +
+                ", monthNumber=" + monthNumber +
+                ", productData='" + productData + '\'' +
+                ", eliminateDate='" + eliminateDate + '\'' +
+                ", key=" + key +
+                '}';
+    }
+
+    public Good(String string) {
+        if (string.equals("default")) {
+            this.setGoodID("0001");
+            this.setGoodName("巧克力");
+            this.setGoodPrice(12.99);
+            this.setGoodRigin("美国");
+            this.setProductData("2018-12-01");
+            this.setMonthNumber(36);
+            this.setShelvesDate("2021-12-01");
+            this.setEliminateDate("null");
+            this.setKey(0);
+        }
+    }
+
+    public Good() {
     }
 }

@@ -51,4 +51,28 @@ public class User {
     public void setMoney(double money) {
         this.money = money;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userName='" + userName + '\'' +
+                ", userID='" + userID + '\'' +
+                ", passwordValue=" + passwordValue +
+                ", registeredDate='" + registeredDate + '\'' +
+                ", money=" + money +
+                '}';
+    }
+
+    public User(String string) {
+        if(string.equals("default")) {
+            this.setUserID("19001");
+            this.setUserName("liupeng");
+            this.setPasswordValue("123456".hashCode());
+            this.setRegisteredDate("2019-01-02");
+            this.setMoney(1000);
+        }
+    }
+
+    public User() {
+    }
 }

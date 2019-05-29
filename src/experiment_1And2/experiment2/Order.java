@@ -2,7 +2,7 @@ package experiment_1And2.experiment2;
 
 public class Order {
     //订单编号
-    private int orderID;
+    private String orderID;
     //用户编号
     private String userID = null;
     //商品编号
@@ -18,11 +18,41 @@ public class Order {
     //时间
     private String time = null;
 
-    public int getOrderID() {
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderID=" + orderID +
+                ", userID='" + userID + '\'' +
+                ", goodID='" + goodID + '\'' +
+                ", number=" + number +
+                ", the_unit_price=" + the_unit_price +
+                ", the_total_price=" + the_total_price +
+                ", date='" + date + '\'' +
+                ", time='" + time + '\'' +
+                '}';
+    }
+
+    public Order(String string) {
+        if (string.equals("default")) {
+            this.setOrderID("0001");
+            this.setGoodID("0001");
+            this.setUserID("19001");
+            this.setNumber(3);
+            this.setThe_total_price(12.99);
+            this.setThe_unit_price(35.97);
+            this.setDate("2019-05-29");
+            this.setTime("18:15:34");
+        }
+    }
+
+    public Order() {
+    }
+
+    public String getOrderID() {
         return orderID;
     }
 
-    public void setOrderID(int orderID) {
+    public void setOrderID(String orderID) {
         this.orderID = orderID;
     }
 
