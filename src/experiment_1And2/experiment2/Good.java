@@ -18,7 +18,7 @@ public class Good {
     // 下架日期
     private String eliminateDate = null;
     // 是否下架
-    private int key = 0;
+    private int eliminateKey = 0;
 
     public String getGoodID() {
         return goodID;
@@ -84,12 +84,12 @@ public class Good {
         this.eliminateDate = eliminateDate;
     }
 
-    public int getKey() {
-        return key;
+    public int getEliminateKey() {
+        return eliminateKey;
     }
 
-    public void setKey(int key) {
-        this.key = key;
+    public void setEliminateKey(int eliminateKey) {
+        this.eliminateKey = eliminateKey;
     }
 
     @Override
@@ -103,7 +103,7 @@ public class Good {
                 ", monthNumber=" + monthNumber +
                 ", productData='" + productData + '\'' +
                 ", eliminateDate='" + eliminateDate + '\'' +
-                ", key=" + key +
+                ", eliminateKey=" + eliminateKey +
                 '}';
     }
 
@@ -117,7 +117,7 @@ public class Good {
             this.setMonthNumber(36);
             this.setShelvesDate("2021-12-01");
             this.setEliminateDate("null");
-            this.setKey(0);
+            this.setEliminateKey(0);
         }
     }
 
