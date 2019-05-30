@@ -24,7 +24,7 @@ public class StringToDoubleTest {
     private StringToDouble stringToDouble = null;
 
     public void createStringToDouble() {
-        this.stringToDouble = new StringToDouble("1233.345");
+        this.stringToDouble = new StringToDouble("1233.345123");
     }
 
     public StringToDouble getStringToDouble() {
