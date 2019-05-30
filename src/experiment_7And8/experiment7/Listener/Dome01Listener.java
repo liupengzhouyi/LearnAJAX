@@ -38,10 +38,13 @@ public class Dome01Listener implements ServletContextListener,
     // -------------------------------------------------------
     public void sessionCreated(HttpSessionEvent se) {
         /* Session is created. */
+        System.out.println("Session is created.");
     }
 
     public void sessionDestroyed(HttpSessionEvent se) {
         /* Session is destroyed. */
+        System.out.println("Session is destroyed.");
+
     }
 
     // -------------------------------------------------------
