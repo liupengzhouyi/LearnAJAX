@@ -13,10 +13,19 @@
     <title>JSTL 数据库操作</title>
 </head>
 <body>
+
+
 <sql:setDataSource var="dblink" driver="com.mysql.cj.jdbc.Driver"
-                   url="jdbc:mysql://localhost:3306/javaDatabase?useSSL=false&serverTimezone=UTC"
-                   user="root"  password="Lp184126"></sql:setDataSource>
-<sql:query dataSource="${dblink}" sql="select * from user;" var="result"></sql:query>
+                   url="jdbc:mysql://localhost:3306/javaDataBase?useSSL=false&serverTimezone=UTC"
+                   user="root"  password="Lp184126"/>
+<h1>
+    连接数据库
+</h1>
+
+<sql:query dataSource="${dblink}" sql="select * from user" var="result"></sql:query>
+
+
+
 
 <%--<table border="1" width="80%">
     <tr>
@@ -36,6 +45,7 @@
         </tr>
     </c:forEach>
 </table>--%>
+
 
 </body>
 </html>

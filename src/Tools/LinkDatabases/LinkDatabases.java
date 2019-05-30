@@ -14,8 +14,10 @@ public class LinkDatabases {
 
     private Statement statement = null;
 
-    public LinkDatabases() throws ClassNotFoundException {
+    public LinkDatabases() throws ClassNotFoundException, SQLException {
         Class.forName(JDBC_DRIVER);
+        this.createConnection();
+        this.createStatement();
     }
 
     public void createConnection() throws SQLException {
@@ -58,8 +60,6 @@ public class LinkDatabases {
     }
 
     public boolean saveData(String str) throws SQLException {
-        this.createConnection();
-        this.createStatement();
         if (this.statement == null) {
             return false;
         } else {
@@ -70,8 +70,6 @@ public class LinkDatabases {
     }
 
     public ResultSet getInformation(String sql) throws SQLException {
-        this.createConnection();
-        this.createStatement();
         ResultSet resultSet = this.statement.executeQuery(sql);
         return resultSet;
     }
