@@ -63,7 +63,7 @@ public class ImplementOperationUserTest {
     public void howMoney() throws SQLException, ClassNotFoundException {
         String userID = "12KJB12312RFVG4";
         ReturnInformation returnInformation = this.getImplementOperationUser().howMoney(userID);
-        returnInformation.toString();
+        System.out.println(returnInformation.toString());
     }
 
     @Test

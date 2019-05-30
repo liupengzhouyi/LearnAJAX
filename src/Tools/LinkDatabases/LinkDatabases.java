@@ -5,8 +5,8 @@ import java.sql.*;
 public class LinkDatabases {
     // JDBC 驱动名及数据库 URL
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    //static final String DB_URL = "jdbc:mysql://localhost:3306/javaDatabase?useSSL=false&serverTimezone=UTC";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/TEST?useSSL=false&serverTimezone=UTC";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/javaDatabase?useSSL=false&serverTimezone=UTC";
+    //static final String DB_URL = "jdbc:mysql://localhost:3306/TEST?useSSL=false&serverTimezone=UTC";
     // 数据库的用户名与密码，需要根据自己的设置
     static final String USERNAME = "root";
     static final String PASSWORD = "Lp184126";
@@ -81,6 +81,7 @@ public class LinkDatabases {
     }
 
     public ResultSet getInformation(String sql) throws SQLException {
+        //System.out.println("Tools.LinkDatabases.LinkDatabases" + sql);
         ResultSet resultSet = this.statement.executeQuery(sql);
         return resultSet;
     }
