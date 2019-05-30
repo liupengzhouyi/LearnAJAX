@@ -1,5 +1,6 @@
 package experiment_9And10.experiment10.good.dao.implement;
 
+import Tools.ReturnInformation.ReturnInformation;
 import experiment_1And2.experiment2.Good;
 import experiment_9And10.experiment10.good.dao.Interface.operationGood;
 
@@ -8,23 +9,23 @@ import java.util.List;
 public class implementOperationGood implements operationGood {
 
     @Override
-    public void addGood(Good good) {
-        String sql = ";";
+    public ReturnInformation addGood(Good good) {
+        return null;
     }
 
     @Override
-    public void resetGood(Good newGood) {
-
+    public ReturnInformation resetGood(Good newGood) {
+        return null;
     }
 
     @Override
-    public void resetGoodPrice(String goodID, String newPrice) {
-
+    public ReturnInformation resetGoodPrice(String goodID, String newPrice) {
+        return null;
     }
 
     @Override
-    public void eliminateGood(String goodID) {
-
+    public ReturnInformation eliminateGood(String goodID) {
+        return null;
     }
 
     @Override

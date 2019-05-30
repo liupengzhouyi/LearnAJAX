@@ -1,5 +1,6 @@
 package experiment_9And10.experiment10.order.dao.Interface;
 
+import Tools.ReturnInformation.ReturnInformation;
 import experiment_1And2.experiment2.Good;
 import experiment_1And2.experiment2.Order;
 import experiment_1And2.experiment2.User;
@@ -9,7 +10,7 @@ import java.util.List;
 public interface operationOrder {
 
     //添加订单
-    public void addOrder(Order order);
+    public ReturnInformation addOrder(Order order);
 
     //按订单号查找订单
     public Order findOrderByOrderID(String orderID);

@@ -1,5 +1,6 @@
 package experiment_9And10.experiment10.good.dao.Interface;
 
+import Tools.ReturnInformation.ReturnInformation;
 import experiment_1And2.experiment2.Good;
 
 import java.util.List;
@@ -7,16 +8,16 @@ import java.util.List;
 public interface operationGood {
 
     //增加商品
-    public void addGood(Good good);
+    public ReturnInformation addGood(Good good);
 
     //修改商品信息
-    public void resetGood(Good newGood);
+    public ReturnInformation resetGood(Good newGood);
 
     //修改价格
-    public void resetGoodPrice(String goodID, String newPrice);
+    public ReturnInformation resetGoodPrice(String goodID, String newPrice);
 
     //下架商品
-    public void eliminateGood(String goodID);
+    public ReturnInformation eliminateGood(String goodID);
 
     //查找所有商品
     public List<Good> findAllGood();

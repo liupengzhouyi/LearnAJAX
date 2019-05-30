@@ -1,5 +1,6 @@
 package experiment_9And10.experiment10.order.dao.implement;
 
+import Tools.ReturnInformation.ReturnInformation;
 import experiment_1And2.experiment2.Good;
 import experiment_1And2.experiment2.Order;
 import experiment_1And2.experiment2.User;
@@ -10,8 +11,8 @@ import java.util.List;
 public class implementOperationOrder implements operationOrder {
 
     @Override
-    public void addOrder(Order order) {
-
+    public ReturnInformation addOrder(Order order) {
+        return null;
     }
 
     @Override
