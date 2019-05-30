@@ -23,7 +23,7 @@
         <%=landingreturnInformation%>
     </h2>
     <h3>
-        <a>
+        <a href="/experiment_7And8/experiment7/LoggedOutServlet">
             点我退出登陆
         </a>
     </h3>
