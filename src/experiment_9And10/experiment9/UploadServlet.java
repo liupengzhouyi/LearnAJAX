@@ -96,7 +96,7 @@ public class UploadServlet extends HttpServlet {
                     "错误信息: " + ex.getMessage());
         }
         // 跳转到 message.jsp
-        getServletContext().getRequestDispatcher("/message.jsp").forward(
+        getServletContext().getRequestDispatcher("/experiment_9And10/experiment9/upload/MessageFile/index.jsp").forward(
                 request, response);
     }
 }
