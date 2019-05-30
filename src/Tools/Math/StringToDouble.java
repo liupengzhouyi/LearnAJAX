@@ -12,10 +12,16 @@ public class StringToDouble {
 
     public StringToDouble(String strNumber) {
         this.setStrNumber(strNumber);
-        String integerNumber = this.getStrNumber().split(".")[0];
-        this.setIntegerNumber(integerNumber);
-        String decimalNumber = this.getStrNumber().split(".")[1];
-        this.setDecimalNumber(decimalNumber);
+        System.out.println(strNumber);
+        String[] strings = this.getStrNumber().split("\\.");
+        System.out.println("strings.length:" + strings.length);
+        if (strings.length == 2) {
+            this.setIntegerNumber(strings[0]);
+            this.setDecimalNumber(strings[1]);
+        } else {
+            this.setIntegerNumber("0");
+            this.setDecimalNumber("0");
+        }
         this.setNumber(this.getIntegerNumber() + this.getDecimalNumber());
     }
 
@@ -30,13 +36,14 @@ public class StringToDouble {
     }
 
     public double getDecimalNumber() {
-        int tempNumber = Integer.getInteger(this.decimalNumber);
+        int temp = Integer.getInteger(this.decimalNumber);
+        double tempNumber = 0.0 + temp;
         int length = this.decimalNumber.length();
-        double divisor = 1;
+        double myDivisor = 1;
         for (int i=0;i<length;i++) {
-            divisor = divisor * 10;
+            myDivisor = myDivisor * 10;
         }
-        double number = tempNumber / divisor;
+        double number = tempNumber / myDivisor;
         return number;
     }
 
