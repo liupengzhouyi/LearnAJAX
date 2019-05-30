@@ -13,7 +13,7 @@ import experiment_9And10.experiment10.user.dao.Interface.operationUser;
 
 import java.sql.SQLException;
 
-public class implementOperationUser implements operationUser {
+public class ImplementOperationUser implements operationUser {
 
     @Override
     public ReturnInformation addUser(User user) throws SQLException, ClassNotFoundException {
