@@ -23,8 +23,8 @@ public interface operationUser {
     public ReturnInformation addMoney(String userID, double money) throws SQLException, ClassNotFoundException;
 
     //消费
-    public ReturnInformation subMoney(String userID, double money);
+    public ReturnInformation subMoney(String userID, double money) throws SQLException, ClassNotFoundException;
 
     //获取用户信息
-    public User getUserByUserID(String userID);
+    public ReturnInformation getUserByUserID(String userID) throws SQLException, ClassNotFoundException;
 }
