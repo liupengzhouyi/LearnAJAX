@@ -75,8 +75,13 @@ public class LinkDatabases {
             return false;
         } else {
             String string = sql;
-            this.statement.executeUpdate(sql);
-            return true;
+            if (sql.isEmpty()) {
+                return false;
+            } else {
+                this.statement.executeUpdate(sql);
+                return true;
+            }
+
         }
     }
 

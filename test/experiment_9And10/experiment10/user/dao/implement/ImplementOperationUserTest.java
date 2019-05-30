@@ -1,6 +1,9 @@
 package experiment_9And10.experiment10.user.dao.implement;
 
+import Tools.DateTime.GetDate;
+import Tools.LinkDatabases.GetData;
 import Tools.ReturnInformation.ReturnInformation;
+import experiment_1And2.experiment2.User;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -48,15 +51,29 @@ public class ImplementOperationUserTest {
     }
 
     @Test
-    public void addUser() {
+    public void addUser() throws SQLException, ClassNotFoundException {
+        User user = new User();
+        user.setUserID("22KJB12312RFVG4");
+        user.setUserName("liupeng");
+        user.setMoney(123.45);
+        user.setPasswordValue("123".hashCode());
+        user.setRegisteredDate(new GetDate().getMyDaye());
+        ReturnInformation returnInformation = this.getImplementOperationUser().addUser(user);
+        System.out.println(returnInformation.toString());
     }
 
     @Test
-    public void resetUser() {
+    public void resetUser() throws SQLException, ClassNotFoundException {
+        String userID = "12KJB12312RFVG4";
+        ReturnInformation returnInformation = this.getImplementOperationUser().resetUser(userID, "newName");
+        System.out.println(returnInformation.toString());
     }
 
     @Test
-    public void resetUserPassword() {
+    public void resetUserPassword() throws SQLException, ClassNotFoundException {
+        String userID = "12KJB12312RFVG4";
+        ReturnInformation returnInformation = this.getImplementOperationUser().resetUserPassword(userID, "123345");
+        System.out.println(returnInformation.toString());
     }
 
     @Test
@@ -67,14 +84,24 @@ public class ImplementOperationUserTest {
     }
 
     @Test
-    public void addMoney() {
+    public void addMoney() throws SQLException, ClassNotFoundException {
+        String userID = "12KJB12312RFVG4";
+        ReturnInformation returnInformation = this.getImplementOperationUser().addMoney(userID, 1000);
+        System.out.println(returnInformation.toString());
     }
 
     @Test
-    public void subMoney() {
+    public void subMoney() throws SQLException, ClassNotFoundException {
+        String userID = "12KJB12312RFVG4";
+        ReturnInformation returnInformation = this.getImplementOperationUser().subMoney(userID, 100000);
+        System.out.println(returnInformation.toString());
     }
 
     @Test
-    public void getUserByUserID() {
+    public void getUserByUserID() throws SQLException, ClassNotFoundException {
+        String userID = "12KJB12312RFVG4";
+        ReturnInformation returnInformation = this.getImplementOperationUser().getUserByUserID(userID);
+        System.out.println(returnInformation.toString());
+        System.out.println(returnInformation.getObject().toString());
     }
 }

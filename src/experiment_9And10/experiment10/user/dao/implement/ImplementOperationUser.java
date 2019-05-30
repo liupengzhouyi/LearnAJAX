@@ -18,7 +18,8 @@ public class ImplementOperationUser implements operationUser {
     @Override
     public ReturnInformation addUser(User user) throws SQLException, ClassNotFoundException {
         String sql = "insert into user(userName, userID, passwordValue, registeredDate, money) " +
-                "value (\'" + user.getUserName() + "\', \'" + user.getUserID() + "\', " + user.getPasswordValue() + ", \', " + user.getMoney() + ");";
+                "value (\'" + user.getUserName() + "\', \'" + user.getUserID() + "\', " + user.getPasswordValue() + ", \'" + user.getRegisteredDate() + "\', " + user.getMoney() + ");";
+        //System.out.println(sql);
         ReturnInformation returnInformation = null;
         SaveData saveData = new SaveData(sql);
         GetDate getDate = new GetDate();
