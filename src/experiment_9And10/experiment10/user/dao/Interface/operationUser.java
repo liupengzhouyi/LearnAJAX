@@ -17,10 +17,10 @@ public interface operationUser {
     public ReturnInformation resetUserPassword(String userID, String passwordValue) throws SQLException, ClassNotFoundException;
 
     //查询余额
-    public double howMoney(String userID);
+    public ReturnInformation howMoney(String userID) throws SQLException, ClassNotFoundException;
 
     //充值
-    public ReturnInformation addMoney(String userID, double money);
+    public ReturnInformation addMoney(String userID, double money) throws SQLException, ClassNotFoundException;
 
     //消费
     public ReturnInformation subMoney(String userID, double money);

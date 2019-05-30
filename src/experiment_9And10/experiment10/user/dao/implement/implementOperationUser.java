@@ -2,6 +2,7 @@ package experiment_9And10.experiment10.user.dao.implement;
 
 import Tools.DateTime.GetDate;
 import Tools.DateTime.GetTime;
+import Tools.LinkDatabases.GetResultSet;
 import Tools.LinkDatabases.SaveData;
 import Tools.LinkDatabases.UpdateData;
 import Tools.ReturnInformation.ReturnInformation;
@@ -70,8 +71,8 @@ public class implementOperationUser implements operationUser {
     @Override
     public ReturnInformation resetUserPassword(String userID, String passwordValue) throws SQLException, ClassNotFoundException {
         String sql = "update user set user.passwordValue = \'" + passwordValue + "\' where userID = \'" + userID + "\';";
-        ReturnInformation returnInformation = null;
         UpdateData updateData = new UpdateData(sql);
+        ReturnInformation returnInformation = null;
         GetDate getDate = new GetDate();
         GetTime getTime = new GetTime();
         if (updateData.isKey()) {
@@ -95,20 +96,47 @@ public class implementOperationUser implements operationUser {
     }
 
     @Override
-    public double howMoney(String userID) {
+    public ReturnInformation howMoney(String userID) throws SQLException, ClassNotFoundException {
         String sql = "select money from user where userID = \'" + userID + "\';";
-
-
-        return 0;
+        GetResultSet getResultSet = new GetResultSet(sql);
+        ReturnInformation returnInformation = null;
+        GetDate getDate = new GetDate();
+        GetTime getTime = new GetTime();
+        if(getResultSet.isKey()) {
+            String money = "null";
+            while(getResultSet.getResultSet().next()) {
+                money = getResultSet.getResultSet().getString("money");
+            }
+            if (money.equals("null")) {
+                returnInformation = new ReturnInformation(getTime.getTime(), getDate.getMyDaye(), "experiment_9And10.experiment10.user.dao.implement.implementOperationUser.howMoney()", "原因未知", "查询用户\" + userID + \"失败", "fail");
+            } else {
+                returnInformation = new ReturnInformation(getTime.getTime(), getDate.getMyDaye(), "experiment_9And10.experiment10.user.dao.implement.implementOperationUser.howMoney()", "null", "查询用户" + userID + "成功", "success");
+                returnInformation.setType("double");
+                returnInformation.setObject(money);
+            }
+        } else {
+            returnInformation = new ReturnInformation(getTime.getTime(), getDate.getMyDaye(), "experiment_9And10.experiment10.user.dao.implement.implementOperationUser.howMoney()", "原因未知", "查询用户\" + userID + \"失败", "fail");
+        }
+        return returnInformation;
     }
 
     @Override
-    public ReturnInformation addMoney(String userID, double money) {
+    public ReturnInformation addMoney(String userID, double money) throws SQLException, ClassNotFoundException {
+        ReturnInformation moneyInformation = this.howMoney(userID);
+
+        ReturnInformation returnInformation = null;
+        GetDate getDate = new GetDate();
+        GetTime getTime = new GetTime();
+        if (moneyInformation.getResult().equals("success")) {
+            String myMoney = (String) moneyInformation.getObject();
+
+            String sql = "";
 
 
-
-
-        return null;
+        } else {
+            //
+        }
+        return returnInformation;
     }
 
     @Override
