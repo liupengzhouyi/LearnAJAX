@@ -28,6 +28,20 @@ public class ReturnInformation {
         this.result = result;
     }
 
+    @Override
+    public String toString() {
+        return "ReturnInformation{" +
+                "time='" + time + '\'' +
+                ", date='" + date + '\'' +
+                ", wrongLocation='" + wrongLocation + '\'' +
+                ", massage='" + massage + '\'' +
+                ", returnInformation='" + returnInformation + '\'' +
+                ", result='" + result + '\'' +
+                ", type='" + type + '\'' +
+                ", object=" + object +
+                '}';
+    }
+
     public String getTime() {
         return time;
     }
