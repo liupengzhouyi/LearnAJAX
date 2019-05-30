@@ -13,8 +13,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
 import java.sql.SQLException;
+import java.util.Collection;
 
 import static org.junit.Assert.*;
 
@@ -104,4 +106,12 @@ public class ImplementOperationUserTest {
         System.out.println(returnInformation.toString());
         System.out.println(returnInformation.getObject().toString());
     }
+
+    @Test
+    public void landing() throws SQLException, ClassNotFoundException {
+        String userID = "12KJB12312RFVG4";
+        ReturnInformation returnInformation = this.getImplementOperationUser().landing(userID, "123345");
+        System.out.println(returnInformation.toString());
+    }
+
 }
