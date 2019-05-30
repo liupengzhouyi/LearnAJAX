@@ -2,10 +2,12 @@ package experiment_9And10.experiment10.user.dao.Interface;
 
 import experiment_1And2.experiment2.User;
 
+import java.sql.SQLException;
+
 public interface operationUser {
 
     // 添加用户
-    public void addUser(User user);
+    public void addUser(User user) throws SQLException, ClassNotFoundException;
 
     //修改用户信息
     public void resetUser(User newUser);

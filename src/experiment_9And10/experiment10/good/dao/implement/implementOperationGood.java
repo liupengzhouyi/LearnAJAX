@@ -9,7 +9,7 @@ public class implementOperationGood implements operationGood {
 
     @Override
     public void addGood(Good good) {
-
+        String sql = ";";
     }
 
     @Override
