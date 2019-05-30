@@ -9,7 +9,7 @@ public class GetDate {
 
     private Date date = null;
 
-    private String string = null;
+    private String myDaye = null;
 
     public void createSimpleDateFormat() {
         this.simpleDateFormat = new SimpleDateFormat();
@@ -36,15 +36,15 @@ public class GetDate {
     }
 
     public void createString() {
-        this.string = new String();
+        this.myDaye = new String();
     }
 
-    public String getString() {
-        return string;
+    public String getMyDaye() {
+        return myDaye;
     }
 
-    public void setString(String string) {
-        this.string = string;
+    public void setMyDaye(String myDaye) {
+        this.myDaye = myDaye;
     }
 
     public void init() {
@@ -56,7 +56,7 @@ public class GetDate {
         this.init();
         this.getSimpleDateFormat().applyPattern("yyyy-MM-dd");
         //yyyy-MM-dd HH:mm:ss
-        this.setString(this.getSimpleDateFormat().format(this.getDate()));
+        this.setMyDaye(this.getSimpleDateFormat().format(this.getDate()));
     }
 
 }
