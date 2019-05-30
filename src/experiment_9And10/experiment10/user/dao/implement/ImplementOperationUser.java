@@ -271,4 +271,50 @@ public class ImplementOperationUser implements operationUser {
         }
         return returnInformation;
     }
+
+    @Override
+    public ReturnInformation landing(String userID, String password) throws SQLException, ClassNotFoundException {
+        String sql = "select passwordValue from user where userID = \'" + userID + "\';";
+        ReturnInformation returnInformation = null;
+        GetResultSet getResultSet = new GetResultSet(sql);
+        GetDate getDate = new GetDate();
+        GetTime getTime = new GetTime();
+        if(getResultSet.isKey()) {
+            String yourPasword = "rxdcfvgbhnjjmfh";
+            while(getResultSet.getResultSet().next()) {
+                yourPasword = getResultSet.getResultSet().getString("passwordValue");
+            }
+            if (password.equals(yourPasword)) {
+                //登陆成功！
+                returnInformation = new ReturnInformation(
+                        getTime.getTime(),
+                        getDate.getMyDaye(),
+                        "experiment_9And10.experiment10.user.dao.implement.implementOperationUser.getUserByUserID()",
+                        "null",
+                        "登陆成功",
+                        "success");
+            } else {
+                // 密码错误！
+                returnInformation = new ReturnInformation(
+                        getTime.getTime(),
+                        getDate.getMyDaye(),
+                        "experiment_9And10.experiment10.user.dao.implement.implementOperationUser.landing()",
+                        "密码错误",
+                        "登陆失败",
+                        "fail");
+            }
+
+        } else {
+            //没有该用户ID
+            //查询失败，没有该用户
+            returnInformation = new ReturnInformation(
+                    getTime.getTime(),
+                    getDate.getMyDaye(),
+                    "experiment_9And10.experiment10.user.dao.implement.implementOperationUser.landing()",
+                    "没有该用户ID",
+                    "登陆失败",
+                    "fail");
+        }
+        return returnInformation;
+    }
 }

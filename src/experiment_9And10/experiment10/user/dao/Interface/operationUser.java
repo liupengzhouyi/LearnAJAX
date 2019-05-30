@@ -27,4 +27,7 @@ public interface operationUser {
 
     //获取用户信息
     public ReturnInformation getUserByUserID(String userID) throws SQLException, ClassNotFoundException;
+
+    //登陆
+    public ReturnInformation landing(String userID, String password) throws SQLException, ClassNotFoundException;
 }
