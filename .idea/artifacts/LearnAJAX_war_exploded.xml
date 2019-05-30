@@ -15,6 +15,8 @@
           <element id="library" level="project" name="xml-apis-1.4.01" />
           <element id="library" level="project" name="xercesImpl" />
           <element id="library" level="project" name="mysql-connector-java-8.0.13" />
+          <element id="library" level="project" name="commons-fileupload-1.4" />
+          <element id="library" level="project" name="commons-io-2.2" />
         </element>
       </element>
     </root>
