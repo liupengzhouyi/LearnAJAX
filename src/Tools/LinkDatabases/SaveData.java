@@ -2,8 +2,7 @@ package Tools.LinkDatabases;
 
 import java.sql.SQLException;
 
-public class SaveDate {
-
+public class SaveData {
     private LinkDatabases linkDatabases = null;
 
     private String sql = null;
@@ -37,7 +36,7 @@ public class SaveDate {
         this.createSQL();
     }
 
-    public SaveDate(String sql) throws SQLException, ClassNotFoundException {
+    public SaveData(String sql) throws SQLException, ClassNotFoundException {
         this.init();
         this.setSql(sql);
         this.getLinkDatabases().saveData(this.getSql());

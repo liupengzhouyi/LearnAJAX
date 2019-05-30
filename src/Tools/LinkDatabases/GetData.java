@@ -3,7 +3,7 @@ package Tools.LinkDatabases;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class GetDate {
+public class GetData {
 
     private LinkDatabases linkDatabases = null;
 
@@ -11,7 +11,7 @@ public class GetDate {
 
     private ResultSet resultSet = null;
 
-    public GetDate(String sql) throws SQLException, ClassNotFoundException {
+    public GetData(String sql) throws SQLException, ClassNotFoundException {
         this.init();
         this.setSql(sql);
         this.setResultSet(this.getLinkDatabases().getInformation(this.getSql()));
