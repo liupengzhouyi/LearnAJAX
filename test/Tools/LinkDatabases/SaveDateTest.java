@@ -10,37 +10,36 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 
 import static org.junit.Assert.*;
 
 //@RunWith(Arquillian.class)
-public class LinkDatabasesTest {
+public class SaveDateTest {
     /*@Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addClass(LinkDatabases.class)
+                .addClass(SaveDate.class)
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
     }*/
 
-    private LinkDatabases linkDatabases = null;
+    private SaveDate saveDate = null;
 
-    public void createLinkDatabases() throws ClassNotFoundException, SQLException {
-        this.linkDatabases = new LinkDatabases();
+    public void createSaveDate() throws SQLException, ClassNotFoundException {
+        this.saveDate = new SaveDate("INSERT INTO `TEST`.`Employees` (`id`, `age`, `first`, `last`) VALUES (106, 24, 'liu', 'peng')");
     }
 
-    public LinkDatabases getLinkDatabases() {
-        return linkDatabases;
+    public SaveDate getSaveDate() {
+        return saveDate;
     }
 
-    public void setLinkDatabases(LinkDatabases linkDatabases) {
-        this.linkDatabases = linkDatabases;
+    public void setSaveDate(SaveDate saveDate) {
+        this.saveDate = saveDate;
     }
 
     @Before
     public void setUp() throws Exception {
-        this.createLinkDatabases();
+        this.createSaveDate();
     }
 
     @After
@@ -48,13 +47,7 @@ public class LinkDatabasesTest {
     }
 
     @Test
-    public void paly() throws SQLException {
-        Connection connection = this.getLinkDatabases().getConnection();
-        if (connection.equals(null)) {
-            System.out.println("数据库连接失败！");
-        } else {
-            System.out.println("数据库连接成功！");
-        }
+    public void paly() {
 
     }
 }
