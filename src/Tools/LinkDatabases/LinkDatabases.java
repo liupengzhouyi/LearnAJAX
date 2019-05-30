@@ -70,8 +70,19 @@ public class LinkDatabases {
         }
     }
 
+    public boolean updateData(String sql) throws SQLException {
+        if (this.statement == null) {
+            return false;
+        } else {
+            String string = sql;
+            this.statement.executeUpdate(sql);
+            return true;
+        }
+    }
+
     public ResultSet getInformation(String sql) throws SQLException {
         ResultSet resultSet = this.statement.executeQuery(sql);
         return resultSet;
     }
+
 }
