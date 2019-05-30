@@ -10,11 +10,14 @@ public interface operationUser {
     // 添加用户
     public ReturnInformation addUser(User user) throws SQLException, ClassNotFoundException;
 
-    //修改用户信息
-    public ReturnInformation resetUser(User newUser);
+    //修改用户名
+    public ReturnInformation resetUser(String userID, String newName) throws SQLException, ClassNotFoundException;
 
     //修改密码
-    public ReturnInformation resetUserPAssword(User newUser);
+    public ReturnInformation resetUserPassword(String userID, String passwordValue) throws SQLException, ClassNotFoundException;
+
+    //查询余额
+    public double howMoney(String userID);
 
     //充值
     public ReturnInformation addMoney(String userID, double money);
@@ -23,5 +26,5 @@ public interface operationUser {
     public ReturnInformation subMoney(String userID, double money);
 
     //获取用户信息
-    public ReturnInformation getUserByUserID(String userID);
+    public User getUserByUserID(String userID);
 }

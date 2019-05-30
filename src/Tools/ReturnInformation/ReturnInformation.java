@@ -14,6 +14,10 @@ public class ReturnInformation {
     private String returnInformation = null;
     //结果
     private String result = null;
+    //返回对象类型
+    private String type = null;
+    //返回对象
+    private Object object =null;
 
     public ReturnInformation(String time, String date, String wrongLocation, String massage, String returnInformation, String result) {
         this.time = time;
@@ -70,5 +74,21 @@ public class ReturnInformation {
 
     public void setResult(String result) {
         this.result = result;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Object getObject() {
+        return object;
+    }
+
+    public void setObject(Object object) {
+        this.object = object;
     }
 }
