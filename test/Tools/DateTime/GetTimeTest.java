@@ -13,36 +13,36 @@ import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
 
 //@RunWith(Arquillian.class)
-public class GetDateTest {
+public class GetTimeTest {
     /*@Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addClass(GetDate.class)
+                .addClass(GetTime.class)
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
     }*/
 
-    private GetDate getDate = null;
+    private GetTime getTime = null;
 
-    public void createGetDate() {
-        this.getDate = new GetDate();
+    public void createGetTime() {
+        this.getTime = new GetTime();
     }
 
-    public GetDate getGetDate() {
-        return getDate;
+    public GetTime getGetTime() {
+        return getTime;
     }
 
-    public void setGetDate(GetDate getDate) {
-        this.getDate = getDate;
+    public void setGetTime(GetTime getTime) {
+        this.getTime = getTime;
     }
 
     @Test
     public void paly() {
-        System.out.println(this.getGetDate().getMyDaye());
+        System.out.println(this.getGetTime().getTime());
     }
 
     @Before
     public void setUp() throws Exception {
-        this.createGetDate();
+        this.createGetTime();
     }
 
     @After
