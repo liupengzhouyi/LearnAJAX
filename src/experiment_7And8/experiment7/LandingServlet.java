@@ -3,7 +3,10 @@ package experiment_7And8.experiment7;
 import Tools.ReturnInformation.ReturnInformation;
 import experiment_7And8.experiment7.Listener.Dome02Listener;
 import experiment_9And10.experiment10.user.dao.implement.ImplementOperationUser;
+import org.jboss.arquillian.core.spi.context.Context;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +23,7 @@ public class LandingServlet extends HttpServlet {
         String liupengPassword = request.getParameter("liupengPassword");
         String landingreturnInformation = null;
         HttpSession httpSession = request.getSession();
+        ServletContext servletContext = request.getServletContext();
         ImplementOperationUser implementOperationUser = new ImplementOperationUser();
         try {
             ReturnInformation returnInformation = implementOperationUser.landing(liupengUserID, liupengPassword);
@@ -29,7 +33,7 @@ public class LandingServlet extends HttpServlet {
                 //登陆成功
                 httpSession.setAttribute("liupengUserID", liupengUserID);
                 this.testAddHttpSessionBindingListener(httpSession);
-                this.testSubHttpSessionBindingListener(httpSession);
+                this.testShowServletContextListener(servletContext);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -48,7 +52,8 @@ public class LandingServlet extends HttpServlet {
         httpSession.setAttribute("dome02Listener", dome02Listener);
     }
 
-    public void testSubHttpSessionBindingListener(HttpSession httpSession) {
-        httpSession.removeAttribute("dome02Listener");
+    public void testShowServletContextListener(ServletContext servletContext) {
+        System.out.println(servletContext.getAttribute("ContextInformation"));
     }
+
 }
