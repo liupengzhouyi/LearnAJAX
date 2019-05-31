@@ -8,9 +8,34 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>JSP EL读取数组、List、Map值</title>
+    <title>添加订单</title>
 </head>
 <body>
+
+<h1>
+    添加订单
+</h1>
+
+<hr>
+
+<form action="experiment_7And8/experiment8/GetOrderInformationServlet" method="post">
+    <table>
+        <tr>
+            <th>
+                商品编号
+            </th>
+            <td>
+                <input type="text" name="liupengGoodID">
+            </td>
+            <th>
+
+            </th>
+            <td>
+                <input type="text" name="liupengGoodID">
+            </td>
+        </tr>
+    </table>
+</form>
 
 </body>
 </html>
