@@ -3,18 +3,14 @@ package experiment_9And10.experiment10.good.dao.implement;
 import Tools.LinkDatabases.GetResultSet;
 import Tools.LinkDatabases.SaveData;
 import Tools.ReturnInformation.ReturnInformation;
-import com.mysql.cj.exceptions.StreamingNotifiable;
 import experiment_1And2.experiment2.Good;
-import experiment_9And10.experiment10.good.dao.Interface.operationGood;
+import experiment_9And10.experiment10.good.dao.Interface.OperationGood;
 
-import java.io.StringReader;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
-public class ImplementOperationGood implements operationGood {
+public class ImplementOperationGood implements OperationGood {
 
     //增加商品
     @Override

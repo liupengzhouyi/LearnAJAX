@@ -6,7 +6,7 @@ import experiment_1And2.experiment2.Good;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface operationGood {
+public interface OperationGood {
 
     //增加商品
     public ReturnInformation addGood(Good good) throws SQLException, ClassNotFoundException;
