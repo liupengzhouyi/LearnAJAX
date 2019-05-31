@@ -1,5 +1,8 @@
 package Tools.ReturnInformation;
 
+import Tools.DateTime.GetDate;
+import Tools.DateTime.GetTime;
+
 public class ReturnInformation {
 
     //时间
@@ -18,6 +21,15 @@ public class ReturnInformation {
     private String type = null;
     //返回对象
     private Object object =null;
+
+    public ReturnInformation(String wrongLocation, String massage, String returnInformation, String result) {
+        this.time = new GetTime().getTime();
+        this.date = new GetDate().getMyDaye();
+        this.wrongLocation = wrongLocation;
+        this.massage = massage;
+        this.returnInformation = returnInformation;
+        this.result = result;
+    }
 
     public ReturnInformation(String time, String date, String wrongLocation, String massage, String returnInformation, String result) {
         this.time = time;
