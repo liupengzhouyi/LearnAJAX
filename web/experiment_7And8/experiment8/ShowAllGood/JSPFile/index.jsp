@@ -1,4 +1,5 @@
-<%--
+<%@ page import="experiment_1And2.experiment2.Good" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: liupeng
   Date: 2019-05-29
@@ -11,9 +12,43 @@
     <title>查看商品</title>
 </head>
 <body>
-<%
-    response.sendRedirect("");
-%>
+    <%
+        HttpSession httpSession = request.getSession();
+        List<Good> list = (List<Good>) httpSession.getAttribute("list");
+    %>
+    <h1>
+        所有商品
+    </h1>
+    <hr>
+    <table>
+        <tr>
+            <th>
+                商品名称
+            </th>
+
+        </tr>
+    <%
+        for (Good good : list) {
+    %>
+            <tr>
+
+                <td>
+                    <a href="<%=good.getGoodID()%>">
+                        <%=good.getGoodName()%>
+                    </a>
+                </td>
+                <td>
+                    <%=good.getGoodPrice()%>
+                </td>
+                <td>
+                    <%=good.getGoodPrice()%>
+                </td>
+
+            </tr>
+    <%
+        }
+    %>
+    </table>
 
 
 </body>
