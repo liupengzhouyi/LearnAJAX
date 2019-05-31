@@ -33,7 +33,6 @@ public class Dome03Listener implements ServletContextListener {
         System.out.println("----------------------");
         System.out.println("| context中添加信息    |");
         System.out.println("----------------------");
-
         ServletContext sct = sce.getServletContext();
         sct.setAttribute("ContextInformation", "ContextInformation");
 
