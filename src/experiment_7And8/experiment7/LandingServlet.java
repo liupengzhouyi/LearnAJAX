@@ -34,6 +34,8 @@ public class LandingServlet extends HttpServlet {
                 httpSession.setAttribute("liupengUserID", liupengUserID);
                 this.testAddHttpSessionBindingListener(httpSession);
                 this.testShowServletContextListener(servletContext);
+                this.testAddServletRequestAttributeListener(request);
+                this.testReplacedServletRequestAttributeListener(request);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -54,6 +56,14 @@ public class LandingServlet extends HttpServlet {
 
     public void testShowServletContextListener(ServletContext servletContext) {
         System.out.println(servletContext.getAttribute("ContextInformation"));
+    }
+
+    public void testAddServletRequestAttributeListener(HttpServletRequest request) {
+        request.setAttribute("requestName", "requestName");
+    }
+
+    public void testReplacedServletRequestAttributeListener(HttpServletRequest request) {
+        request.setAttribute("requestName", "newRequestName");
     }
 
 }

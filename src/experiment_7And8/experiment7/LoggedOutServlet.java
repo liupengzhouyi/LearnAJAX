@@ -27,6 +27,7 @@ public class LoggedOutServlet extends HttpServlet {
                                 "</h1>");
         this.testSubHttpSessionBindingListener(httpSession);
         this.testSubServletContextListener(servletContext);
+        this.testSubServletRequestAttributeListener(request);
         httpSession.invalidate();
     }
 
@@ -40,5 +41,9 @@ public class LoggedOutServlet extends HttpServlet {
 
     public void testSubServletContextListener(ServletContext servletContext) {
         servletContext.removeAttribute("newObject");
+    }
+
+    public void testSubServletRequestAttributeListener(HttpServletRequest httpServletRequest) {
+        httpServletRequest.removeAttribute("requestName");
     }
 }
