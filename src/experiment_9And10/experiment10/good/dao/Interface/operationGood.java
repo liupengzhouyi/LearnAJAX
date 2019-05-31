@@ -20,11 +20,11 @@ public interface operationGood {
     public ReturnInformation eliminateGood(String goodID);
 
     //查找所有商品
-    public List<Good> findAllGood();
+    public ReturnInformation findAllGood();
 
     //查找所有下架商品
-    public List<Good> findAllEliminateGood();
+    public ReturnInformation findAllEliminateGood();
 
     //查找所有没有下架商品
-    public List<Good> findAllNotEliminateGood();
+    public ReturnInformation findAllNotEliminateGood();
 }

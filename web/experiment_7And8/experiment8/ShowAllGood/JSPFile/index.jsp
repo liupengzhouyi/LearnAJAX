@@ -8,9 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>JSP EL读取数组、List、Map值</title>
+    <title>查看商品</title>
 </head>
 <body>
+<%
+    response.sendRedirect("");
+%>
+
 
 </body>
 </html>
