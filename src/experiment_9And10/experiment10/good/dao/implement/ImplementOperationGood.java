@@ -1,11 +1,17 @@
 package experiment_9And10.experiment10.good.dao.implement;
 
+import Tools.LinkDatabases.GetResultSet;
 import Tools.LinkDatabases.SaveData;
 import Tools.ReturnInformation.ReturnInformation;
+import com.mysql.cj.exceptions.StreamingNotifiable;
 import experiment_1And2.experiment2.Good;
 import experiment_9And10.experiment10.good.dao.Interface.operationGood;
 
+import java.io.StringReader;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ImplementOperationGood implements operationGood {
@@ -80,7 +86,50 @@ public class ImplementOperationGood implements operationGood {
 
     //查找所有没有下架商品
     @Override
-    public ReturnInformation findAllNotEliminateGood() {
-        return null;
+    public ReturnInformation findAllNotEliminateGood() throws SQLException, ClassNotFoundException {
+        String sql = null;
+        ReturnInformation returnInformation = null;
+        sql = "select * from good where eliminateKey = 0;";
+        GetResultSet getResultSet = new GetResultSet(sql);
+        if (getResultSet.isKey()) {
+            List<Good> list = new ArrayList<Good>();
+            while(getResultSet.getResultSet().next()) {
+                String goodID = getResultSet.getResultSet().getString("goodID");
+                String goodName = getResultSet.getResultSet().getString("goodName");
+                double goodPrice = getResultSet.getResultSet().getDouble("goodPrice");
+                String goodRigin = getResultSet.getResultSet().getString("goodRigin");
+                String productData = getResultSet.getResultSet().getString("productData");
+                int mothNumber = getResultSet.getResultSet().getInt("mothNumber");
+                String shelvesData = getResultSet.getResultSet().getString("shelvesData");
+                int eliminateKey = getResultSet.getResultSet().getInt("eliminateKey");
+                String eliminateDate = getResultSet.getResultSet().getString("eliminateDate");
+                Good good = new Good();
+                good.setGoodID(goodID);
+                good.setGoodName(goodName);
+                good.setGoodPrice(goodPrice);
+                good.setGoodRigin(goodRigin);
+                good.setProductData(productData);
+                good.setMonthNumber(mothNumber);
+                good.setShelvesDate(shelvesData);
+                good.setEliminateKey(eliminateKey);
+                good.setEliminateDate(eliminateDate);
+                list.add(good);
+            }
+            returnInformation = new ReturnInformation(
+                    "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.addGood",
+                    "null",
+                    "获取商品成功！",
+                    "success");
+            returnInformation.setType("List<Good>");
+            returnInformation.setObject(list);
+        } else {
+            //没有获取
+            returnInformation = new ReturnInformation(
+                    "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.addGood",
+                    "没有商品",
+                    "获取商品失败！",
+                    "fail");
+        }
+        return returnInformation;
     }
 }

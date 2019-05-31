@@ -27,5 +27,5 @@ public interface operationGood {
     public ReturnInformation findAllEliminateGood();
 
     //查找所有没有下架商品
-    public ReturnInformation findAllNotEliminateGood();
+    public ReturnInformation findAllNotEliminateGood() throws SQLException, ClassNotFoundException;
 }
