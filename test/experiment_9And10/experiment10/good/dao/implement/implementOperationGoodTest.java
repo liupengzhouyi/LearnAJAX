@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.sql.SQLException;
+import java.util.List;
 
 //@RunWith(Arquillian.class)
 public class implementOperationGoodTest {
@@ -98,6 +99,24 @@ public class implementOperationGoodTest {
     }
 
     @Test
-    public void findAllNotEliminateGood() {
+    public void findAllNotEliminateGood() throws SQLException, ClassNotFoundException {
+        this.setReturnInformation(this.getImplementOperationGood().findAllNotEliminateGood());
+        if (this.getReturnInformation().getResult().equals("success")) {
+            //获取商品数据成功
+            System.out.println(this.getReturnInformation().toString());
+            System.out.println(this.getReturnInformation().getType());
+            if (this.getReturnInformation().getType().equals("List<Good>")) {
+                List<Good> list = (List<Good>) this.getReturnInformation().getObject();
+                for (Good good:list) {
+                    System.out.println(good.toString());
+                }
+            } else {
+                System.out.println("返回值类型错误");
+            }
+        } else {
+            //获取商品数据失败
+            System.out.println(this.getReturnInformation().toString());
+        }
+
     }
 }
