@@ -55,7 +55,7 @@ public class GetDataTest {
 
     public void init() throws SQLException, ClassNotFoundException {
         this.createSQL();
-        this.setSql("select * from Employees;");
+        this.setSql("select * from user;");
         this.createGetData();
     }
 
@@ -72,7 +72,7 @@ public class GetDataTest {
     public void paly() throws SQLException {
         ResultSet resultSet = this.getGetData().getResultSet();
         while (resultSet.next()) {
-            System.out.println(resultSet.getString("id"));
+            System.out.println(resultSet.getString("userID"));
         }
     }
 }

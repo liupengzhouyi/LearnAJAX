@@ -1,6 +1,7 @@
 package experiment_7And8.experiment7;
 
 import Tools.ReturnInformation.ReturnInformation;
+import experiment_7And8.experiment7.Listener.Dome02Listener;
 import experiment_9And10.experiment10.user.dao.implement.ImplementOperationUser;
 
 import javax.servlet.ServletException;
@@ -27,6 +28,8 @@ public class LandingServlet extends HttpServlet {
             if(returnInformation.getResult().equals("success")) {
                 //登陆成功
                 httpSession.setAttribute("liupengUserID", liupengUserID);
+                this.testAddHttpSessionBindingListener(httpSession);
+                this.testSubHttpSessionBindingListener(httpSession);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -38,5 +41,14 @@ public class LandingServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
+    }
+
+    public void testAddHttpSessionBindingListener(HttpSession httpSession) {
+        Dome02Listener dome02Listener = new Dome02Listener();
+        httpSession.setAttribute("dome02Listener", dome02Listener);
+    }
+
+    public void testSubHttpSessionBindingListener(HttpSession httpSession) {
+        httpSession.removeAttribute("dome02Listener");
     }
 }
