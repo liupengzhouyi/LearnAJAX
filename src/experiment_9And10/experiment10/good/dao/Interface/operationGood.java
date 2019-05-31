@@ -3,12 +3,13 @@ package experiment_9And10.experiment10.good.dao.Interface;
 import Tools.ReturnInformation.ReturnInformation;
 import experiment_1And2.experiment2.Good;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface operationGood {
 
     //增加商品
-    public ReturnInformation addGood(Good good);
+    public ReturnInformation addGood(Good good) throws SQLException, ClassNotFoundException;
 
     //修改商品信息
     public ReturnInformation resetGood(Good newGood);
