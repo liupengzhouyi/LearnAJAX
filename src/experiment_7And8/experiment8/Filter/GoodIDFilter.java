@@ -27,6 +27,17 @@ public class GoodIDFilter implements Filter {
             ReturnInformation returnInformation = implementOperationGood.goodIsExistence(goodID);
             if (returnInformation.getResult().equals("success")) {
                 //商品存在
+                //防止过滤俩次
+                String requestURI = httpServletRequest.getRequestURI();
+                System.out.println(requestURI);
+                if (requestURI.contains("favicon.ico")) {
+                    return;
+                }
+                returnInformation = implementOperationGood.
+
+
+
+                //返回过滤链
                 chain.doFilter(req, resp);
             } else {
                 //商品不存在

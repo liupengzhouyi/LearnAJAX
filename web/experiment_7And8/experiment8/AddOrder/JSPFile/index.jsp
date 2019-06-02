@@ -1,4 +1,4 @@
-<%--
+<%@ page import="experiment_1And2.experiment2.Good" %><%--
   Created by IntelliJ IDEA.
   User: liupeng
   Date: 2019-05-29
@@ -16,26 +16,45 @@
     String goodID = request.getParameter("goodID");
     HttpSession httpSession = request.getSession();
     httpSession.setAttribute("goodID", goodID);
+    Good good = (Good) httpSession.getAttribute("good");
 %>
 
 <h1>
-    添加订单<%=goodID%>
+    创建订单
 </h1>
 <hr>
 <form action="experiment_7And8/experiment8/GetOrderInformationServlet" method="post">
     <table>
         <tr>
             <th>
-                商品编号
+                商品名称
             </th>
             <td>
-                <input type="text" name="liupengGoodID">
+                <%=good.getGoodName()%>
             </td>
+        </tr>
+        <tr>
             <th>
-
+                商品单价
             </th>
             <td>
-                <input type="text" name="liupengGoodID">
+                <%=good.getGoodPrice()%>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                商品单价
+            </th>
+            <td>
+                <%=good.getGoodPrice()%>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <input type="submit" value="提交">
+            </th>
+            <td>
+                <input type="reset" value="重置">
             </td>
         </tr>
     </table>
