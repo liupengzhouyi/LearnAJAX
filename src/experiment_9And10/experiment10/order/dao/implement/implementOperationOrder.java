@@ -12,7 +12,31 @@ public class implementOperationOrder implements operationOrder {
 
     @Override
     public ReturnInformation addOrder(Order order) {
-        return null;
+        ReturnInformation returnInformation = null;
+        if (order.equals(null)) {
+            String sql = "insert into myOrder(" +
+                    "orderID, " +
+                    "userID, " +
+                    "goodID, " +
+                    "number, " +
+                    "the_unit_price, " +
+                    "the_total_price, " +
+                    "date, " +
+                    "time) value (" +
+                    "1, " +
+                    "\'" + order.getUserID() + "\', " +
+                    "1, " +
+                    "123, " +
+                    "12.99, " +
+                    "1234, " +
+                    "'', " +
+                    "'');";
+        } else {
+            //参数传递错误
+
+        }
+
+        return returnInformation;
     }
 
     @Override
