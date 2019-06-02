@@ -35,7 +35,11 @@ public class implementOperationOrder implements operationOrder {
                     "\'" + new GetTime().getTime() + "\');";
         } else {
             //参数传递错误
-
+            returnInformation = new ReturnInformation(
+                    "experiment_9And10.experiment10.order.dao.implement.implementOperationOrder.addOrder",
+                    "没有商品",
+                    "获取商品失败！",
+                    "fail");
         }
 
         return returnInformation;
