@@ -1,5 +1,7 @@
 package experiment_9And10.experiment10.order.dao.implement;
 
+import Tools.DateTime.GetDate;
+import Tools.DateTime.GetTime;
 import Tools.ReturnInformation.ReturnInformation;
 import experiment_1And2.experiment2.Good;
 import experiment_1And2.experiment2.Order;
@@ -29,8 +31,8 @@ public class implementOperationOrder implements operationOrder {
                     "123, " +
                     "12.99, " +
                     "1234, " +
-                    "'', " +
-                    "'');";
+                    "\'" + new GetDate().getMyDaye() + "\', " +
+                    "\'" + new GetTime().getTime() + "\');";
         } else {
             //参数传递错误
 
