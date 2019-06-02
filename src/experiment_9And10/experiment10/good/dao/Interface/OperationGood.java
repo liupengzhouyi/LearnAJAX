@@ -28,4 +28,7 @@ public interface OperationGood {
 
     //查找所有没有下架商品
     public ReturnInformation findAllNotEliminateGood() throws SQLException, ClassNotFoundException;
+
+    //商品存在性
+    public ReturnInformation goodIsExistence(String goodID) throws SQLException, ClassNotFoundException;
 }

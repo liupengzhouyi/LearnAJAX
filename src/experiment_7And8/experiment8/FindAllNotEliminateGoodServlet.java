@@ -32,14 +32,15 @@ public class FindAllNotEliminateGoodServlet extends HttpServlet {
                 httpSession.setAttribute("returnInformation",this.createReturnInformation());
                 response.sendRedirect("/experiment_7And8/experiment8/ErrorFile/JSPFile/index.jsp");
             }
+
         } catch (SQLException e) {
-            e.printStackTrace();
             httpSession.setAttribute("returnInformation",this.createReturnInformation());
             response.sendRedirect("/experiment_7And8/experiment8/ErrorFile/JSPFile/index.jsp");
+            e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
             httpSession.setAttribute("returnInformation",this.createReturnInformation());
             response.sendRedirect("/experiment_7And8/experiment8/ErrorFile/JSPFile/index.jsp");
+            e.printStackTrace();
         }
     }
 

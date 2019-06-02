@@ -21,11 +21,7 @@
 <h1>
     添加订单<%=goodID%>
 </h1>
-
-
-
 <hr>
-
 <form action="experiment_7And8/experiment8/GetOrderInformationServlet" method="post">
     <table>
         <tr>

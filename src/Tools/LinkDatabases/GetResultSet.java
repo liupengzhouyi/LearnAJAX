@@ -17,10 +17,11 @@ public class GetResultSet {
         this.init();
         this.setSql(sql);
         this.setResultSet(this.getLinkDatabases().getInformation(this.getSql()));
-        if (this.getResultSet() == null) {
-            this.setKey(false);
-        } else {
+        if (this.getResultSet().next()) {
             this.setKey(true);
+            this.getResultSet().previous();
+        } else {
+            this.setKey(false);
         }
     }
 

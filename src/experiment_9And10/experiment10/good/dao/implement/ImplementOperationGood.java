@@ -136,6 +136,7 @@ public class ImplementOperationGood implements OperationGood {
         if (!goodID.isEmpty()) {
             String sql = "select * from good where goodID = " + goodID + ";";
             GetResultSet getResultSet = new GetResultSet(sql);
+
             if (getResultSet.isKey()) {
                 while(getResultSet.getResultSet().next()) {
                     String ID = getResultSet.getResultSet().getString("goodID");
@@ -148,6 +149,7 @@ public class ImplementOperationGood implements OperationGood {
                     }
                 }
             } else {
+                System.out.println("-----------------------------");
                 returnInformation = new ReturnInformation(
                         "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.goodIsExistence",
                         "从数据库中获取数据失败",
