@@ -20,6 +20,9 @@ public interface OperationGood {
     //下架商品
     public ReturnInformation eliminateGood(String goodID);
 
+    //用商品ID查找商品
+    public ReturnInformation findGoodByGoodID(String goodID) throws SQLException, ClassNotFoundException;
+
     //查找所有商品
     public ReturnInformation findAllGood();
 

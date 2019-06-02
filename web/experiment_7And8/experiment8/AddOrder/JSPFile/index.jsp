@@ -1,4 +1,5 @@
-<%@ page import="experiment_1And2.experiment2.Good" %><%--
+<%@ page import="experiment_1And2.experiment2.Good" %>
+<%@ page import="Tools.ReturnInformation.ReturnInformation" %><%--
   Created by IntelliJ IDEA.
   User: liupeng
   Date: 2019-05-29
@@ -16,14 +17,17 @@
     String goodID = request.getParameter("goodID");
     HttpSession httpSession = request.getSession();
     httpSession.setAttribute("goodID", goodID);
-    Good good = (Good) httpSession.getAttribute("good");
-%>
-
+    ReturnInformation returnInformation = (ReturnInformation) httpSession.getAttribute("returnInformation");
+    Good good = (Good) returnInformation.getObject();
+    if (good.equals(null)) {
+        System.out.println("abc");
+    } else {
+        %>
 <h1>
     创建订单
 </h1>
 <hr>
-<form action="experiment_7And8/experiment8/GetOrderInformationServlet" method="post">
+<form action="/experiment_7And8/experiment8/GetOrderInformationServlet" method="post">
     <table>
         <tr>
             <th>
@@ -50,6 +54,14 @@
             </td>
         </tr>
         <tr>
+            <td>
+                商品数量
+            </td>
+            <td>
+                <input type="number" name="liupengGoodNumbers">
+            </td>
+        </tr>
+        <tr>
             <th>
                 <input type="submit" value="提交">
             </th>
@@ -59,6 +71,8 @@
         </tr>
     </table>
 </form>
-
+<%
+    }
+%>
 </body>
 </html>
