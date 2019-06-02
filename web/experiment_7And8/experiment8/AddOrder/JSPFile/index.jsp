@@ -14,6 +14,8 @@
 
 <%
     String goodID = request.getParameter("goodID");
+    HttpSession httpSession = request.getSession();
+    httpSession.setAttribute("goodID", goodID);
 %>
 
 <h1>
