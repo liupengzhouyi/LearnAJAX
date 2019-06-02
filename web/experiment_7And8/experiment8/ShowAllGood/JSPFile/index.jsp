@@ -42,18 +42,12 @@
             </th>
         </tr>
     <%
-        if (list.isEmpty()) {
-            System.out.println("没有获取信息");
-        }
-        if (list.size() == 0) {
-            System.out.println("没有获取信息");
-        }
         for (Good good : list) {
     %>
             <tr>
 
                 <td>
-                    <a href="<%=good.getGoodID()%>">
+                    <a href="/experiment_7And8/experiment8/AddOrder/JSPFile/index.jsp?goodID=<%=good.getGoodID()%>">
                         <%=good.getGoodName()%>
                     </a>
                 </td>

@@ -24,7 +24,7 @@ public class FindAllNotEliminateGoodServlet extends HttpServlet {
         OperationGood operationGood = new ImplementOperationGood();
         try {
             ReturnInformation returnInformation = operationGood.findAllNotEliminateGood();
-            if (returnInformation.getResult().equals("success1")) {
+            if (returnInformation.getResult().equals("success")) {
                 list = (List<Good>) returnInformation.getObject();
                 httpSession.setAttribute("list", list);
                 response.sendRedirect("/experiment_7And8/experiment8/ShowAllGood/JSPFile/index.jsp");

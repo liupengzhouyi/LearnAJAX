@@ -12,9 +12,15 @@
 </head>
 <body>
 
+<%
+    String goodID = request.getParameter("goodID");
+%>
+
 <h1>
-    添加订单
+    添加订单<%=goodID%>
 </h1>
+
+
 
 <hr>
 
