@@ -124,6 +124,11 @@ public class implementOperationGoodTest {
     public void goodIsExistence() throws SQLException, ClassNotFoundException {
         ReturnInformation returnInformation = this.getImplementOperationGood().goodIsExistence("65");
         System.out.println(returnInformation.toString());
+    }
 
+    @Test
+    public void findGoodByGoodID() throws SQLException, ClassNotFoundException {
+        ReturnInformation returnInformation = this.getImplementOperationGood().findGoodByGoodID("1");
+        System.out.println(returnInformation.toString());
     }
 }
