@@ -24,7 +24,7 @@
     } else {
         %>
 <h1>
-    创建订单
+    创建订单《Bug : 显示俩次》
 </h1>
 <hr>
 <form action="/experiment_7And8/experiment8/GetOrderInformationServlet" method="post">

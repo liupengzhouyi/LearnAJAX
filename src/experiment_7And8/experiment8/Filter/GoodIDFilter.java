@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebFilter(filterName = "GoodIDFilter", urlPatterns = "/experiment_7And8/experiment8/AddOrder/JSPFile/index.jsp")
+@WebFilter(filterName = "GoodIDFilter", urlPatterns = "/experiment_7And8/experiment8/AddOrder/*")
 public class GoodIDFilter implements Filter {
     public void destroy() {
         // 在 Filter 实例被 Web 容器从服务移除之前调用
