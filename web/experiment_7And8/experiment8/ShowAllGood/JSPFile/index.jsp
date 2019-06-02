@@ -25,9 +25,29 @@
             <th>
                 商品名称
             </th>
-
+            <th>
+                商品价格
+            </th>
+            <th>
+                商品原产地
+            </th>
+            <th>
+                生产日期
+            </th>
+            <th>
+                保质期
+            </th>
+            <th>
+                上架日期
+            </th>
         </tr>
     <%
+        if (list.isEmpty()) {
+            System.out.println("没有获取信息");
+        }
+        if (list.size() == 0) {
+            System.out.println("没有获取信息");
+        }
         for (Good good : list) {
     %>
             <tr>
@@ -43,13 +63,22 @@
                 <td>
                     <%=good.getGoodPrice()%>
                 </td>
-
+                <td>
+                    <%=good.getGoodRigin()%>
+                </td>
+                <td>
+                    <%=good.getProductData()%>
+                </td>
+                <td>
+                    <%=good.getMonthNumber()%>
+                </td>
+                <td>
+                    <%=good.getShelvesDate()%>
+                </td>
             </tr>
     <%
         }
     %>
     </table>
-
-
 </body>
 </html>
