@@ -24,19 +24,35 @@ public class FindAllNotEliminateGoodServlet extends HttpServlet {
         OperationGood operationGood = new ImplementOperationGood();
         try {
             ReturnInformation returnInformation = operationGood.findAllNotEliminateGood();
-            if (returnInformation.getResult().equals("success")) {
+            if (returnInformation.getResult().equals("success1")) {
                 list = (List<Good>) returnInformation.getObject();
                 httpSession.setAttribute("list", list);
+                response.sendRedirect("/experiment_7And8/experiment8/ShowAllGood/JSPFile/index.jsp");
+            } else {
+                httpSession.setAttribute("returnInformation",this.createReturnInformation());
+                response.sendRedirect("/experiment_7And8/experiment8/ErrorFile/JSPFile/index.jsp");
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            httpSession.setAttribute("returnInformation",this.createReturnInformation());
+            response.sendRedirect("/experiment_7And8/experiment8/ErrorFile/JSPFile/index.jsp");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            httpSession.setAttribute("returnInformation",this.createReturnInformation());
+            response.sendRedirect("/experiment_7And8/experiment8/ErrorFile/JSPFile/index.jsp");
         }
-        response.sendRedirect("/experiment_7And8/experiment8/ShowAllGood/JSPFile/index.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
+    }
+
+    public ReturnInformation createReturnInformation() {
+        ReturnInformation returnInformation = new ReturnInformation(
+                "experiment_7And8.experiment8.FindAllNotEliminateGoodServlet",
+                "获取未下架商品信息失败",
+                "获取未下架商品信息失败",
+                "fail");
+        return returnInformation;
     }
 }

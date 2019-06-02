@@ -1,4 +1,4 @@
-<%--
+<%@ page import="Tools.ReturnInformation.ReturnInformation" %><%--
   Created by IntelliJ IDEA.
   User: liupeng
   Date: 2019-05-29
@@ -8,9 +8,70 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>JSP EL读取数组、List、Map值</title>
+    <title>错误页面</title>
 </head>
 <body>
+<%
+    HttpSession httpSession = request.getSession();
+    ReturnInformation returnInformation = (ReturnInformation) httpSession.getAttribute("returnInformation");
+%>
+    <h1>
+        错误页面
+    </h1>
+    <hr>
 
+    <h2>
+        错误信息
+    </h2>
+    <table>
+        <tr>
+            <th>
+                错误信息
+            </th>
+            <td>
+                <%=returnInformation.getMassage()%>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                错误位置
+            </th>
+            <td>
+                <%=returnInformation.getWrongLocation()%>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                操作结果
+            </th>
+            <td>
+                <%=returnInformation.getReturnInformation()%>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                返回结果
+            </th>
+            <td>
+                <%=returnInformation.getResult()%>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                错误发生日期
+            </th>
+            <td>
+                <%=returnInformation.getDate()%>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                错误发生时间
+            </th>
+            <td>
+                <%=returnInformation.getTime()%>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
