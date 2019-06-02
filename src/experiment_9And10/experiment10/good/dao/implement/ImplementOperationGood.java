@@ -6,6 +6,7 @@ import Tools.ReturnInformation.ReturnInformation;
 import experiment_1And2.experiment2.Good;
 import experiment_9And10.experiment10.good.dao.Interface.OperationGood;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -124,6 +125,40 @@ public class ImplementOperationGood implements OperationGood {
                     "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.addGood",
                     "没有商品",
                     "获取商品失败！",
+                    "fail");
+        }
+        return returnInformation;
+    }
+
+    @Override
+    public ReturnInformation goodIsExistence(String goodID) throws SQLException, ClassNotFoundException {
+        ReturnInformation returnInformation = null;
+        if (!goodID.isEmpty()) {
+            String sql = "select * from good where goodID = " + goodID + ";";
+            GetResultSet getResultSet = new GetResultSet(sql);
+            if (getResultSet.isKey()) {
+                while(getResultSet.getResultSet().next()) {
+                    String ID = getResultSet.getResultSet().getString("goodID");
+                    if (ID.equals(goodID)) {
+                        returnInformation = new ReturnInformation(
+                                "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.goodIsExistence",
+                                "从数据库中获取数据",
+                                "商品存在",
+                                "success");
+                    }
+                }
+            } else {
+                returnInformation = new ReturnInformation(
+                        "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.goodIsExistence",
+                        "从数据库中获取数据失败",
+                        "获取商品失败",
+                        "fail");
+            }
+        } else {
+            returnInformation = new ReturnInformation(
+                    "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.goodIsExistence",
+                    "参数传入失败，没有接受到商品ID",
+                    "获取商品失败",
                     "fail");
         }
         return returnInformation;

@@ -119,4 +119,11 @@ public class implementOperationGoodTest {
         }
 
     }
+
+    @Test
+    public void goodIsExistence() throws SQLException, ClassNotFoundException {
+        ReturnInformation returnInformation = this.getImplementOperationGood().goodIsExistence("1");
+        System.out.println(returnInformation.toString());
+
+    }
 }
