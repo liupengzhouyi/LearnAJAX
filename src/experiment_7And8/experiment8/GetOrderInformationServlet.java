@@ -15,12 +15,7 @@ import java.io.PrintWriter;
 @WebServlet(name = "GetOrderInformationServlet", urlPatterns = "/experiment_7And8/experiment8/GetOrderInformationServlet")
 public class GetOrderInformationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession httpSession = request.getSession();
-        String liupengGoodID = (String) httpSession.getAttribute("goodID");
-        String liupengGoodNumber = request.getParameter("liupengGoodNumbers");
-        PrintWriter printWriter = response.getWriter();
-        printWriter.println(liupengGoodID);
-        printWriter.println(liupengGoodNumber);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
