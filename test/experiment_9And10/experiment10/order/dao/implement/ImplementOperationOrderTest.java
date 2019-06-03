@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.sql.SQLException;
+import java.util.List;
 
 //@RunWith(Arquillian.class)
 public class ImplementOperationOrderTest {
@@ -75,5 +76,14 @@ public class ImplementOperationOrderTest {
 
     @Test
     public void findOrderByGood() {
+    }
+
+    @Test
+    public void findOrderPaging() throws SQLException, ClassNotFoundException {
+        ReturnInformation returnInformation = this.getImplementOperationOrder().findOrderPaging(1, 5);
+        List<Order> list = (List<Order>) returnInformation.getObject();
+        for (Order order: list) {
+            System.out.println(order.toString());
+        }
     }
 }

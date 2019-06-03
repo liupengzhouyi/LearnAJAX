@@ -9,8 +9,11 @@ import experiment_1And2.experiment2.Good;
 import experiment_1And2.experiment2.Order;
 import experiment_1And2.experiment2.User;
 import experiment_9And10.experiment10.order.dao.Interface.operationOrder;
+import org.apache.xpath.operations.Or;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ImplementOperationOrder implements operationOrder {
@@ -73,13 +76,7 @@ public class ImplementOperationOrder implements operationOrder {
                 Order order = null;
                 while (getResultSet.getResultSet().next()){
                     order = new Order();
-                    order.setOrderID(getResultSet.getResultSet().getString("orderID"));
-                    order.setUserID(getResultSet.getResultSet().getString("userID"));
-                    order.setGoodID(getResultSet.getResultSet().getString("goodID"));
-                    order.setThe_unit_price(getResultSet.getResultSet().getDouble("the_unit_price"));
-                    order.setThe_total_price(getResultSet.getResultSet().getDouble("the_total_price"));
-                    order.setTime(getResultSet.getResultSet().getString("time"));
-                    order.setDate(getResultSet.getResultSet().getString("date"));
+                    order = this.encapsulationOrder(order, getResultSet.getResultSet());
                 }
                 returnInformation = new ReturnInformation(
                         "experiment_9And10.experiment10.order.dao.implement.ImplementOperationOrder.addOrder",
@@ -127,4 +124,57 @@ public class ImplementOperationOrder implements operationOrder {
         return null;
     }
 
+    //分页显示数据
+
+
+    @Override
+    public ReturnInformation findOrderPaging(int number, int maxData) throws SQLException, ClassNotFoundException {
+        ReturnInformation returnInformation = null;
+        //参数传递没有错误
+        String sql = "select * from myOrder where orderID >= " + number*maxData + " and orderID < " + (1+number)*maxData + ";";
+        GetResultSet getResultSet = new GetResultSet(sql);
+        if (getResultSet.isKey()) {
+            List<Order> list = new ArrayList<Order>();
+            Order order = null;
+            while (getResultSet.getResultSet().next()){
+                order = new Order();
+                order = this.encapsulationOrder(order, getResultSet.getResultSet());
+                list.add(order);
+            }
+            returnInformation = new ReturnInformation(
+                    "experiment_9And10.experiment10.order.dao.implement.ImplementOperationOrder.addOrder",
+                    "获取到订单",
+                    "获取订单成功",
+                    "success");
+            returnInformation.setType("List<Order>");
+            returnInformation.setObject(list);
+
+        } else {
+            returnInformation = new ReturnInformation(
+                    "experiment_9And10.experiment10.order.dao.implement.ImplementOperationOrder.addOrder",
+                    "在没在数据库中获取到订单",
+                    "获取订单失败",
+                    "fail");
+        }
+        return returnInformation;
+    }
+
+    /**
+    * @Description: 封装Order
+    * @Param:  封装Order
+    * @return: Order
+    * @Author: liupeng/刘鹏
+    * @Date: 2019-06-04
+    */
+
+    public Order encapsulationOrder(Order order, ResultSet resultSet) throws SQLException {
+        order.setOrderID(resultSet.getString("orderID"));
+        order.setUserID(resultSet.getString("userID"));
+        order.setGoodID(resultSet.getString("goodID"));
+        order.setThe_unit_price(resultSet.getDouble("the_unit_price"));
+        order.setThe_total_price(resultSet.getDouble("the_total_price"));
+        order.setTime(resultSet.getString("time"));
+        order.setDate(resultSet.getString("date"));
+        return order;
+    }
 }

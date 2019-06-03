@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>JSP EL读取数组、List、Map值</title>
+    <title>留言板分页显示</title>
 </head>
 <body>
 
