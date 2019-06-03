@@ -24,24 +24,35 @@ public class ShowOrderServlet extends HttpServlet {
         HttpSession httpSession = request.getSession();
         String liupengGoodID = (String) httpSession.getAttribute("goodID");
         String liupengGoodNumber = request.getParameter("liupengGoodNumbers");
-        String liupengUserID = request.getParameter("liupengUserID");
+        String liupengUserID = (String) httpSession.getAttribute("liupengUserID");
         PrintWriter printWriter = response.getWriter();
+        //-------------------------------------------
+        printWriter.println(liupengGoodID);
+        printWriter.println(liupengGoodNumber);
+        printWriter.println(liupengUserID);
+        //-------------------------------------------
+
         ReturnInformation returnInformation = null;
         try {
             ImplementOperationGood implementOperationGood = new ImplementOperationGood();
             returnInformation = implementOperationGood.findGoodByGoodID(liupengGoodID);
             Good good = (Good) returnInformation.getObject();
-            int numbers = Integer.getInteger(liupengGoodNumber);
+
+            System.out.println(returnInformation.toString());
+            System.out.println(good.toString());
+
+            double number = new StringToDouble(liupengGoodNumber).getNumber();
             GetTime getTime = new GetTime();
             GetDate getDate = new GetDate();
             Order order = new Order();
             order.setGoodID(liupengGoodID);
             order.setUserID(liupengUserID);
-            order.setNumber(numbers);
+            order.setNumber((int) number);
             order.setThe_unit_price(good.getGoodPrice());
-            order.setThe_total_price(order.getThe_unit_price() * Double.valueOf(liupengGoodNumber));
+            order.setThe_total_price(order.getThe_unit_price() * number);
             order.setDate(getDate.getMyDaye());
             order.setTime(getTime.getTime());
+            System.out.println(order.toString());
             returnInformation = new ReturnInformation(
                     "experiment_7And8.experiment8.ShowOrderServlet.doPost()",
                     "生成订单成功",
@@ -50,10 +61,6 @@ public class ShowOrderServlet extends HttpServlet {
             returnInformation.setType("Order");
             returnInformation.setObject(order);
             httpSession.setAttribute("returnInformation", returnInformation);
-            //-------------------------------------------
-            printWriter.println(liupengGoodID);
-            printWriter.println(liupengGoodNumber);
-            //-------------------------------------------
             response.sendRedirect("/experiment_7And8/experiment8/ShowOrder/JSPFile/index.jsp");
         } catch (SQLException e) {
             returnInformation = new ReturnInformation(

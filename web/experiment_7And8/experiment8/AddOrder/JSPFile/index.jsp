@@ -12,7 +12,6 @@
     <title>添加订单</title>
 </head>
 <body>
-
 <%
     String goodID = request.getParameter("goodID");
     HttpSession httpSession = request.getSession();
@@ -27,7 +26,7 @@
     创建订单《Bug : 显示俩次》
 </h1>
 <hr>
-<form action="/experiment_7And8/experiment8/GetOrderInformationServlet" method="post">
+<form action="/experiment_7And8/experiment8/ShowOrderServlet" method="post">
     <table>
         <tr>
             <th>

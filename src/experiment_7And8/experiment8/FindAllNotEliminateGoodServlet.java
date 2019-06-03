@@ -18,6 +18,7 @@ import java.util.List;
 
 @WebServlet(name = "FindAllNotEliminateGoodServlet", urlPatterns = "/experiment_7And8/experiment8/FindAllNotEliminateGoodServlet")
 public class FindAllNotEliminateGoodServlet extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Good> list = null;
         HttpSession httpSession = request.getSession();
@@ -32,7 +33,6 @@ public class FindAllNotEliminateGoodServlet extends HttpServlet {
                 httpSession.setAttribute("returnInformation",this.createReturnInformation());
                 response.sendRedirect("/experiment_7And8/experiment8/ErrorFile/JSPFile/index.jsp");
             }
-
         } catch (SQLException e) {
             httpSession.setAttribute("returnInformation",this.createReturnInformation());
             response.sendRedirect("/experiment_7And8/experiment8/ErrorFile/JSPFile/index.jsp");

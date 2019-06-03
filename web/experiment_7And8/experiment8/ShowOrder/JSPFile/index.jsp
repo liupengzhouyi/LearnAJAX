@@ -17,11 +17,10 @@
 <%
     String goodID = request.getParameter("goodID");
     HttpSession httpSession = request.getSession();
-    Order order = (Order) httpSession.getAttribute("order");
-    if (order.equals(null)) {
-        System.out.println("abc");
-    } else {
-        %>
+    httpSession.setAttribute("goodID", goodID);
+    ReturnInformation returnInformation = (ReturnInformation) httpSession.getAttribute("returnInformation");
+    Order order = (Order) returnInformation.getObject();
+%>
 <h1>
     确认订单
 </h1>
@@ -86,8 +85,6 @@
         </tr>
     </table>
 </form>
-<%
-    }
-%>
+
 </body>
 </html>

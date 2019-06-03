@@ -175,25 +175,16 @@ public class ImplementOperationGood implements OperationGood {
         if (getResultSet.isKey()) {
             Good good = null;
             while(getResultSet.getResultSet().next()) {
-                String good_ID = getResultSet.getResultSet().getString("goodID");
-                String goodName = getResultSet.getResultSet().getString("goodName");
-                double goodPrice = getResultSet.getResultSet().getDouble("goodPrice");
-                String goodRigin = getResultSet.getResultSet().getString("goodRigin");
-                String productData = getResultSet.getResultSet().getString("productData");
-                int monthNumber = getResultSet.getResultSet().getInt("monthNumber");
-                String shelvesDate = getResultSet.getResultSet().getString("shelvesDate");
-                int eliminateKey = getResultSet.getResultSet().getInt("eliminateKey");
-                String eliminateDate = getResultSet.getResultSet().getString("eliminateDate");
                 good = new Good();
-                good.setGoodID(good_ID);
-                good.setGoodName(goodName);
-                good.setGoodPrice(goodPrice);
-                good.setGoodRigin(goodRigin);
-                good.setProductData(productData);
-                good.setMonthNumber(monthNumber);
-                good.setShelvesDate(shelvesDate);
-                good.setEliminateKey(eliminateKey);
-                good.setEliminateDate(eliminateDate);
+                good.setGoodID(getResultSet.getResultSet().getString("goodID"));
+                good.setGoodName(getResultSet.getResultSet().getString("goodName"));
+                good.setGoodPrice(getResultSet.getResultSet().getDouble("goodPrice"));
+                good.setGoodRigin(getResultSet.getResultSet().getString("goodRigin"));
+                good.setProductData(getResultSet.getResultSet().getString("productData"));
+                good.setMonthNumber(getResultSet.getResultSet().getInt("monthNumber"));
+                good.setShelvesDate(getResultSet.getResultSet().getString("shelvesDate"));
+                good.setEliminateKey(getResultSet.getResultSet().getInt("eliminateKey"));
+                good.setEliminateDate(getResultSet.getResultSet().getString("eliminateDate"));
             }
             returnInformation = new ReturnInformation(
                     "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.findGoodByGoodID",

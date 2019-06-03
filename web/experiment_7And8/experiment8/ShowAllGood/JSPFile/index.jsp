@@ -47,7 +47,7 @@
             <tr>
 
                 <td>
-                    <a href="/experiment_7And8/experiment8/ShowOrderServlet?goodID=<%=good.getGoodID()%>">
+                    <a href="/experiment_7And8/experiment8/AddOrder/JSPFile/index.jsp?goodID=<%=good.getGoodID()%>">
                         <%=good.getGoodName()%>
                     </a>
                 </td>
