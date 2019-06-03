@@ -34,9 +34,9 @@ public class Order {
 
     public Order(String string) {
         if (string.equals("default")) {
-            this.setOrderID("0001");
-            this.setGoodID("0001");
-            this.setUserID("19001");
+            this.setOrderID("1");
+            this.setGoodID("1");
+            this.setUserID("12KJB12312RFVG1");
             this.setNumber(3);
             this.setThe_total_price(12.99);
             this.setThe_unit_price(35.97);

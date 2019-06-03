@@ -21,7 +21,6 @@ public class ImplementOperationOrder implements operationOrder {
         ReturnInformation returnInformation = null;
         if (!order.equals(null)) {
             String sql = "insert into myOrder(" +
-                    "orderID, " +
                     "userID, " +
                     "goodID, " +
                     "number, " +
@@ -29,7 +28,6 @@ public class ImplementOperationOrder implements operationOrder {
                     "the_total_price, " +
                     "date, " +
                     "time) value (" +
-                    "1, " +
                     "\'" + order.getUserID() + "\', " +
                     order.getGoodID() +", " +
                     order.getNumber() + ", " +
