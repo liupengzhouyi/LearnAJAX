@@ -1,12 +1,11 @@
 package experiment_9And10.experiment10.good.dao.implement;
 
-import Tools.LinkDatabases.GetResultSet;
-import Tools.LinkDatabases.SaveData;
+import Tools.LinkDatabases.LinkMySQLByJDBC.GetResultSet;
+import Tools.LinkDatabases.LinkMySQLByJDBC.SaveData;
 import Tools.ReturnInformation.ReturnInformation;
 import experiment_1And2.experiment2.Good;
 import experiment_9And10.experiment10.good.dao.Interface.OperationGood;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,18 +1,11 @@
 package Tools.LinkDatabases;
 
-import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import Tools.LinkDatabases.LinkMySQLByJDBC.SaveData;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import java.sql.SQLException;
-
-import static org.junit.Assert.*;
 
 //@RunWith(Arquillian.class)
 public class SaveDataTest {
@@ -29,7 +22,7 @@ public class SaveDataTest {
         this.SaveData = new SaveData("INSERT INTO `TEST`.`Employees` (`id`, `age`, `first`, `last`) VALUES (107, 24, 'liu', 'peng')");
     }
 
-    public SaveData getSaveData() {
+    public Tools.LinkDatabases.LinkMySQLByJDBC.SaveData getSaveData() {
         return SaveData;
     }
 

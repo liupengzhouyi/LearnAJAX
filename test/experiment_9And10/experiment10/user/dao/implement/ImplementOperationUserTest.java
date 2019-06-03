@@ -1,24 +1,13 @@
 package experiment_9And10.experiment10.user.dao.implement;
 
 import Tools.DateTime.GetDate;
-import Tools.LinkDatabases.GetData;
 import Tools.ReturnInformation.ReturnInformation;
 import experiment_1And2.experiment2.User;
-import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 
 import java.sql.SQLException;
-import java.util.Collection;
-
-import static org.junit.Assert.*;
 
 //@RunWith(Arquillian.class)
 public class ImplementOperationUserTest {

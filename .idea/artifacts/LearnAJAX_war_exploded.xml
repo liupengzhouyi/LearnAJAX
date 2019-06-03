@@ -17,6 +17,13 @@
           <element id="library" level="project" name="mysql-connector-java-8.0.13" />
           <element id="library" level="project" name="commons-fileupload-1.4" />
           <element id="library" level="project" name="commons-io-2.2" />
+          <element id="library" level="project" name="commons-beanutils-1.9.3" />
+          <element id="library" level="project" name="commons-collections4-4.2" />
+          <element id="library" level="project" name="commons-dbcp2-2.5.0" />
+          <element id="library" level="project" name="commons-lang3-3.8.1" />
+          <element id="library" level="project" name="commons-logging-1.2" />
+          <element id="library" level="project" name="commons-pool2-2.6.0" />
+          <element id="library" level="project" name="ezmorph-1.0.6" />
         </element>
       </element>
     </root>

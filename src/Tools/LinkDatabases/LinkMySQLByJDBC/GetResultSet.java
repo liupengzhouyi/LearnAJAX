@@ -1,25 +1,34 @@
-package Tools.LinkDatabases;
+package Tools.LinkDatabases.LinkMySQLByJDBC;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class GetData {
+public class GetResultSet {
 
     private LinkDatabases linkDatabases = null;
 
     private String sql = null;
 
+    private boolean key = false;
+
     private ResultSet resultSet = null;
 
-    public GetData(String sql) throws SQLException, ClassNotFoundException {
+    public GetResultSet(String sql) throws SQLException, ClassNotFoundException {
         this.init();
         this.setSql(sql);
         this.setResultSet(this.getLinkDatabases().getInformation(this.getSql()));
+        if (this.getResultSet().next()) {
+            this.setKey(true);
+            this.getResultSet().previous();
+        } else {
+            this.setKey(false);
+        }
     }
 
-    private void init() throws SQLException, ClassNotFoundException {
-        this.createLinkDatabases();
+    public void init() throws SQLException, ClassNotFoundException {
         this.createSQL();
+        this.createLinkDatabases();
+        this.createResultSet();
     }
 
     public void createLinkDatabases() throws SQLException, ClassNotFoundException {
@@ -44,6 +53,18 @@ public class GetData {
 
     public void setSql(String sql) {
         this.sql = sql;
+    }
+
+    public boolean isKey() {
+        return key;
+    }
+
+    public void setKey(boolean key) {
+        this.key = key;
+    }
+
+    public void createResultSet() {
+        this.resultSet = null;
     }
 
     public ResultSet getResultSet() {

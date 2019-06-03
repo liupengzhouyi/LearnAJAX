@@ -55,5 +55,12 @@
     <orderEntry type="library" exported="" name="mysql-connector-java-8.0.13" level="project" />
     <orderEntry type="library" exported="" name="commons-fileupload-1.4" level="project" />
     <orderEntry type="library" exported="" name="commons-io-2.2" level="project" />
+    <orderEntry type="library" exported="" name="commons-beanutils-1.9.3" level="project" />
+    <orderEntry type="library" exported="" name="commons-collections4-4.2" level="project" />
+    <orderEntry type="library" exported="" name="commons-dbcp2-2.5.0" level="project" />
+    <orderEntry type="library" exported="" name="commons-lang3-3.8.1" level="project" />
+    <orderEntry type="library" exported="" name="commons-logging-1.2" level="project" />
+    <orderEntry type="library" exported="" name="commons-pool2-2.6.0" level="project" />
+    <orderEntry type="library" exported="" name="ezmorph-1.0.6" level="project" />
   </component>
 </module>
