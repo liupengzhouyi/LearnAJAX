@@ -1,4 +1,4 @@
-package Tools.LinkDatabases.LinkMySQLByJDBC;
+package Tools.LinkDatabases.LinkMySQLByDBCP.DataBaseTools;
 
 import Tools.LinkDatabases.LinkMySQLByDBCP.LinkTools.LinkDataBasesByDBCP;
 import org.junit.After;
