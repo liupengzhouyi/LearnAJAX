@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class GetOrderAndPagingShowServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession httpSession = request.getSession();
-        String strPageNumber = "0";//(String) httpSession.getAttribute("pageNumber");
+        String strPageNumber = (String) httpSession.getAttribute("pageNumber");
         int intPageNumber = Integer.parseInt(strPageNumber);
         GetPagingMaxNumber getPagingMaxNumber = new GetPagingMaxNumber();
         int maxPaging = getPagingMaxNumber.getNumber();
@@ -28,7 +28,8 @@ public class GetOrderAndPagingShowServlet extends HttpServlet {
             if (returnInformation.getResult().equals("success")) {
                 //数据获成功
                 intPageNumber = intPageNumber + 1;
-                httpSession.setAttribute("pageNumber", intPageNumber);
+                httpSession.setAttribute("pageNumber", intPageNumber+"");
+                httpSession.setAttribute("returnInformation", returnInformation);
                 response.sendRedirect("/experiment_11And12/experiment11/JSPFile/index.jsp");
             } else {
                 returnInformation = new ReturnInformation(

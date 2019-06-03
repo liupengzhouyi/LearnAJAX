@@ -29,6 +29,6 @@ public interface operationOrder {
     public List<Order> findOrderByGood(Good good);
 
     //分页显示数据
-    public ReturnInformation findOrderPaging(int number, int maxData) throws SQLException, ClassNotFoundException;
+    public ReturnInformation findOrderPaging(int number, int maxDate) throws SQLException, ClassNotFoundException;
 
 }
