@@ -14,12 +14,12 @@ import org.apache.bcel.generic.FieldGenOrMethodGen;
 import java.sql.SQLException;
 import java.util.List;
 
-public class implementOperationOrder implements operationOrder {
+public class ImplementOperationOrder implements operationOrder {
 
     @Override
     public ReturnInformation addOrder(Order order) throws SQLException, ClassNotFoundException {
         ReturnInformation returnInformation = null;
-        if (order.equals(null)) {
+        if (!order.equals(null)) {
             String sql = "insert into myOrder(" +
                     "orderID, " +
                     "userID, " +
@@ -41,14 +41,14 @@ public class implementOperationOrder implements operationOrder {
             if (saveData.isKey()) {
                 //保存数据成功
                 returnInformation = new ReturnInformation(
-                        "experiment_9And10.experiment10.order.dao.implement.implementOperationOrder.addOrder",
+                        "experiment_9And10.experiment10.order.dao.implement.ImplementOperationOrder.addOrder",
                         "保存订单数据成功",
                         "保存订单数据成功",
                         "success");
             } else {
                 //保存数据失败
                 returnInformation = new ReturnInformation(
-                        "experiment_9And10.experiment10.order.dao.implement.implementOperationOrder.addOrder",
+                        "experiment_9And10.experiment10.order.dao.implement.ImplementOperationOrder.addOrder",
                         "保存订单数据失败",
                         "保存订单数据失败",
                         "fail");
@@ -56,7 +56,7 @@ public class implementOperationOrder implements operationOrder {
         } else {
             //参数传递错误
             returnInformation = new ReturnInformation(
-                    "experiment_9And10.experiment10.order.dao.implement.implementOperationOrder.addOrder",
+                    "experiment_9And10.experiment10.order.dao.implement.ImplementOperationOrder.addOrder",
                     "没有商品",
                     "获取商品失败！",
                     "fail");
@@ -85,7 +85,7 @@ public class implementOperationOrder implements operationOrder {
                     order.setDate(getResultSet.getResultSet().getString("date"));
                 }
                 returnInformation = new ReturnInformation(
-                        "experiment_9And10.experiment10.order.dao.implement.implementOperationOrder.addOrder",
+                        "experiment_9And10.experiment10.order.dao.implement.ImplementOperationOrder.addOrder",
                         "获取到订单",
                         "获取订单成功",
                         "success");
@@ -94,7 +94,7 @@ public class implementOperationOrder implements operationOrder {
 
             } else {
                 returnInformation = new ReturnInformation(
-                        "experiment_9And10.experiment10.order.dao.implement.implementOperationOrder.addOrder",
+                        "experiment_9And10.experiment10.order.dao.implement.ImplementOperationOrder.addOrder",
                         "在没在数据库中获取到订单",
                         "获取订单失败",
                         "fail");
@@ -102,7 +102,7 @@ public class implementOperationOrder implements operationOrder {
         } else {
             //参数传递有错误
             returnInformation = new ReturnInformation(
-                    "experiment_9And10.experiment10.order.dao.implement.implementOperationOrder.addOrder",
+                    "experiment_9And10.experiment10.order.dao.implement.ImplementOperationOrder.addOrder",
                     "没有商品",
                     "获取商品失败！",
                     "fail");
