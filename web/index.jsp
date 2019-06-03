@@ -1,4 +1,6 @@
-<%--
+<%@ page import="Tools.LinkDatabases.LinkMySQLByDBCP.LinkTools.LinkDataBasesByDBCP" %>
+<%@ page import="java.lang.management.GarbageCollectorMXBean" %>
+<%@ page import="java.sql.Connection" %><%--
   Created by IntelliJ IDEA.
   User: liupeng
   Date: 2019-05-20
@@ -11,6 +13,25 @@
     <title>监听器</title>
   </head>
   <body>
+    <%
+      LinkDataBasesByDBCP linkDataBasesByDBCP = new LinkDataBasesByDBCP();
+      Connection connection = linkDataBasesByDBCP.getConnection();
+      if(connection != null) {
+        %>
+    <h1>
+      连接
+    </h1>
+    <%
+      } else {
+    %>
+    <h1>
+      不连接
+    </h1>
+    <%
+      }
+    %>
+
+
 
   </body>
 </html>

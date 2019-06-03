@@ -1,8 +1,11 @@
-package Tools.LinkDatabases.LinkMySQLByJDBC;
+package Tools.LinkDatabases.LinkMySQLByJDBC.DataBaseTools;
+
+import Tools.LinkDatabases.LinkMySQLByJDBC.LinkTools.LinkDatabases;
 
 import java.sql.SQLException;
 
-public class SaveData {
+public class UpdateData {
+
     private LinkDatabases linkDatabases = null;
 
     private String sql = null;
@@ -46,9 +49,9 @@ public class SaveData {
         this.createSQL();
     }
 
-    public SaveData(String sql) throws SQLException, ClassNotFoundException {
+    public UpdateData(String sql) throws SQLException, ClassNotFoundException {
         this.init();
         this.setSql(sql);
-        this.setKey(this.getLinkDatabases().saveData(this.getSql()));
+        this.setKey(this.getLinkDatabases().updateData(this.getSql()));
     }
 }

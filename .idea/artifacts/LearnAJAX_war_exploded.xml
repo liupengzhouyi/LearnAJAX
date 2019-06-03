@@ -24,6 +24,7 @@
           <element id="library" level="project" name="commons-logging-1.2" />
           <element id="library" level="project" name="commons-pool2-2.6.0" />
           <element id="library" level="project" name="ezmorph-1.0.6" />
+          <element id="library" level="project" name="commons-dbutils-1.4" />
         </element>
       </element>
     </root>

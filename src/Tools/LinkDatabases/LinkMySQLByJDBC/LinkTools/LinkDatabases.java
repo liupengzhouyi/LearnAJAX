@@ -1,4 +1,4 @@
-package Tools.LinkDatabases.LinkMySQLByJDBC;
+package Tools.LinkDatabases.LinkMySQLByJDBC.LinkTools;
 
 import java.sql.*;
 
@@ -86,7 +86,7 @@ public class LinkDatabases {
     }
 
     public ResultSet getInformation(String sql) throws SQLException {
-        //System.out.println("Tools.LinkDatabases.LinkMySQLByJDBC.LinkDatabases" + sql);
+        //System.out.println("Tools.LinkDatabases.LinkMySQLByJDBC.LinkTools.LinkDatabases" + sql);
         ResultSet resultSet = this.statement.executeQuery(sql);
         return resultSet;
     }

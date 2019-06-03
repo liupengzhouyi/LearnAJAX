@@ -1,4 +1,4 @@
-package Tools.LinkDatabases.LinkMySQLByDBCP;
+package Tools.LinkDatabases.LinkMySQLByDBCP.LinkTools;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import javax.sql.DataSource;

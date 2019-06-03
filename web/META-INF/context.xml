@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/">
+    <Resource name="jdbc/javaDatabase"
+              auth="Container"
+              type="javax.sql.DataSource"
+              factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+              url="jdbc:mysql://localhost:3306/javaDatabase?useSSL=false&amp;serverTimezone=UTC"
+              driverClassName ="com.mysql.cj.jdbc.Driver"
+              username="root"
+              password="Lp184126"
+    />
+</Context>

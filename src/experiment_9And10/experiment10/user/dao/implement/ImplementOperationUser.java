@@ -2,9 +2,9 @@ package experiment_9And10.experiment10.user.dao.implement;
 
 import Tools.DateTime.GetDate;
 import Tools.DateTime.GetTime;
-import Tools.LinkDatabases.LinkMySQLByJDBC.GetResultSet;
-import Tools.LinkDatabases.LinkMySQLByJDBC.SaveData;
-import Tools.LinkDatabases.LinkMySQLByJDBC.UpdateData;
+import Tools.LinkDatabases.LinkMySQLByJDBC.DataBaseTools.GetResultSet;
+import Tools.LinkDatabases.LinkMySQLByJDBC.DataBaseTools.SaveData;
+import Tools.LinkDatabases.LinkMySQLByJDBC.DataBaseTools.UpdateData;
 import Tools.Math.StringToDouble;
 import Tools.ReturnInformation.ReturnInformation;
 import experiment_1And2.experiment2.User;

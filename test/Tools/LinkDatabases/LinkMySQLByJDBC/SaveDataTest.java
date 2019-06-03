@@ -1,6 +1,6 @@
-package Tools.LinkDatabases;
+package Tools.LinkDatabases.LinkMySQLByJDBC;
 
-import Tools.LinkDatabases.LinkMySQLByJDBC.SaveData;
+import Tools.LinkDatabases.LinkMySQLByJDBC.DataBaseTools.SaveData;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,7 +22,7 @@ public class SaveDataTest {
         this.SaveData = new SaveData("INSERT INTO `TEST`.`Employees` (`id`, `age`, `first`, `last`) VALUES (107, 24, 'liu', 'peng')");
     }
 
-    public Tools.LinkDatabases.LinkMySQLByJDBC.SaveData getSaveData() {
+    public Tools.LinkDatabases.LinkMySQLByJDBC.DataBaseTools.SaveData getSaveData() {
         return SaveData;
     }
 

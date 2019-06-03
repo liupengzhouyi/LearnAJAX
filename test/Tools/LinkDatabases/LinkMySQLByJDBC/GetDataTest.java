@@ -1,6 +1,6 @@
-package Tools.LinkDatabases;
+package Tools.LinkDatabases.LinkMySQLByJDBC;
 
-import Tools.LinkDatabases.LinkMySQLByJDBC.GetData;
+import Tools.LinkDatabases.LinkMySQLByJDBC.AbandonedTools.GetData;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
