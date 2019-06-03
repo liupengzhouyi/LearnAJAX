@@ -1,13 +1,16 @@
 package Tools.LinkDatabases.LinkMySQLByDBCP.DataBaseTools;
 
-import Tools.LinkDatabases.LinkMySQLByJDBC.LinkTools.LinkDatabases;
+import Tools.LinkDatabases.DAO.LinkDatabase;
+import Tools.LinkDatabases.LinkMySQLByDBCP.LinkTools.LinkDataBasesByDBCP;
+import Tools.LinkDatabases.LinkMySQLByDBCP.LinkTools.LinkMySQLByDBCP;
 
+import javax.naming.NamingException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class GetResultSet {
 
-    private LinkDatabases linkDatabases = null;
+    private LinkDatabase linkDatabases = null;
 
     private String sql = null;
 
@@ -15,7 +18,7 @@ public class GetResultSet {
 
     private ResultSet resultSet = null;
 
-    public GetResultSet(String sql) throws SQLException, ClassNotFoundException {
+    public GetResultSet(String sql) throws SQLException, ClassNotFoundException, NamingException {
         this.init();
         this.setSql(sql);
         this.setResultSet(this.getLinkDatabases().getInformation(this.getSql()));
@@ -27,21 +30,21 @@ public class GetResultSet {
         }
     }
 
-    public void init() throws SQLException, ClassNotFoundException {
+    public void init() throws SQLException, ClassNotFoundException, NamingException {
         this.createSQL();
         this.createLinkDatabases();
         this.createResultSet();
     }
 
-    public void createLinkDatabases() throws SQLException, ClassNotFoundException {
-        this.linkDatabases = new LinkDatabases();
+    public void createLinkDatabases() throws SQLException, ClassNotFoundException, NamingException {
+        this.linkDatabases = new LinkMySQLByDBCP();
     }
 
-    public LinkDatabases getLinkDatabases() {
+    public LinkDatabase getLinkDatabases() {
         return linkDatabases;
     }
 
-    public void setLinkDatabases(LinkDatabases linkDatabases) {
+    public void setLinkDatabases(LinkMySQLByDBCP linkDatabases) {
         this.linkDatabases = linkDatabases;
     }
 

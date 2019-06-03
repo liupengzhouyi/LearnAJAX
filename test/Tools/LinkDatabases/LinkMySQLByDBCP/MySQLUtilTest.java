@@ -1,6 +1,6 @@
 package Tools.LinkDatabases.LinkMySQLByDBCP;
 
-import Tools.LinkDatabases.LinkMySQLByDBCP.LinkTools.MySQLUtil;
+import Tools.LinkDatabases.LinkMySQLByDBCP.AbandonedTools.MySQLUtil;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

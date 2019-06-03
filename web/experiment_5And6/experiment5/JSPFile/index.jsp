@@ -5,6 +5,7 @@
   Time: 11:03
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jstl/sql" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -14,10 +15,9 @@
 </head>
 <body>
 
+<%--使用sql:DataSource获取数据库连接--%>
+<sql:setDataSource dataSource="jdbc/javaDatabase" var="dblink"></sql:setDataSource>
 
-<sql:setDataSource var="dblink" driver="com.mysql.cj.jdbc.Driver"
-                   url="jdbc:mysql://localhost:3306/javaDataBase?useSSL=false&serverTimezone=UTC"
-                   user="root"  password="Lp184126"/>
 <h1>
     连接数据库
 </h1>

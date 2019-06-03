@@ -1,12 +1,14 @@
 package Tools.LinkDatabases.LinkMySQLByDBCP.LinkTools;
 
+import Tools.LinkDatabases.DAO.LinkDatabase;
 import org.apache.commons.dbcp2.BasicDataSource;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class LinkMySQLByDBCPHardCoded {
+public class LinkMySQLByDBCPHardCoded implements LinkDatabase {
 
     public static DataSource dataSource = null;
 
@@ -23,7 +25,28 @@ public class LinkMySQLByDBCPHardCoded {
         basicDataSource.setMaxWaitMillis(10);
         dataSource = basicDataSource;
     }
-    public static void main(String[] args) throws SQLException {
+
+    @Override
+    public Connection getConnection() throws SQLException {
+        return dataSource.getConnection();
+    }
+
+    @Override
+    public boolean saveData(String str) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean updateData(String sql) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public ResultSet getInformation(String sql) throws SQLException {
+        return null;
+    }
+
+    /*public static void main(String[] args) throws SQLException {
         //4.获取数据库连接对象
         Connection conn = dataSource.getConnection();
         //5.获取数据库连接信息
@@ -32,5 +55,5 @@ public class LinkMySQLByDBCPHardCoded {
         System.out.println(metaData.getURL()
                 +",UserName="+metaData.getUserName()
                 +","+metaData.getDriverName());
-    }
+    }*/
 }

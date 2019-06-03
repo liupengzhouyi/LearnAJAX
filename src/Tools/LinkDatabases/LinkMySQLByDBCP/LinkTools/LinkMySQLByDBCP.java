@@ -1,5 +1,6 @@
 package Tools.LinkDatabases.LinkMySQLByDBCP.LinkTools;
 
+import Tools.LinkDatabases.DAO.LinkDatabase;
 import org.apache.commons.dbcp2.BasicDataSourceFactory;
 import javax.sql.DataSource;
 import java.sql.*;
@@ -21,7 +22,20 @@ import java.util.Properties;
  * DBCP连接池配置位于src/config/dbcpconfig.properties中
  * 连接数据库qzqmall user:root password:admin useSSL:false charset:utf8
  */
-public class LinkMySQLByDBCP {
+public class LinkMySQLByDBCP implements LinkDatabase {
+
+
+    public LinkMySQLByDBCP() throws SQLException {
+        try {
+            Properties properties = new Properties();
+            properties.load(LinkMySQLByDBCP.class.getClassLoader().getResourceAsStream("config/dbcpconfig.properties"));
+            dataSource = BasicDataSourceFactory.createDataSource(properties);//得到一个连接池对象
+        } catch (Exception e) {
+            throw new ExceptionInInitializerError("初始化连接错误，请检查配置文件！");
+        }
+        this.connection = dataSource.getConnection();
+        this.statement = connection.createStatement();
+    }
 
     //定义一个连接池对象
     private static DataSource dataSource;
@@ -36,15 +50,7 @@ public class LinkMySQLByDBCP {
         }
     }
 
-    /**
-     * 构造从连接池取出连接的方法
-     *
-     * @return Connection
-     * @throws SQLException
-     */
-    public static Connection getConnection() throws SQLException {
-        return dataSource.getConnection();
-    }
+
 
     /**
      * 关闭rs & stmt & conn
@@ -79,14 +85,73 @@ public class LinkMySQLByDBCP {
         }
     }
 
+    private Connection connection = null;
+
+    private Statement statement = null;
+
+    /**
+     * 构造从连接池取出连接的方法
+     *
+     * @return Connection
+     * @throws SQLException
+     */
+    @Override
+    public Connection getConnection() throws SQLException {
+        return dataSource.getConnection();
+    }
+
+    public void setConnection(Connection connection) {
+        this.connection = connection;
+    }
+
+    public Statement getStatement() {
+        return statement;
+    }
+
+    public void setStatement(Statement statement) {
+        this.statement = statement;
+    }
+
+    @Override
+    public boolean saveData(String str) throws SQLException {
+        if (this.statement == null) {
+            return false;
+        } else {
+            String string = str;
+            this.statement.execute(string);
+            return true;
+        }
+    }
+
+    @Override
+    public boolean updateData(String sql) throws SQLException {
+        if (this.statement == null) {
+            return false;
+        } else {
+            String string = sql;
+            if (sql.isEmpty()) {
+                return false;
+            } else {
+                this.statement.executeUpdate(sql);
+                return true;
+            }
+        }
+    }
+
+    @Override
+    public ResultSet getInformation(String sql) throws SQLException {
+        ResultSet resultSet = this.statement.executeQuery(sql);
+        return resultSet;
+    }
+
     /**
      * 测试类
      * @param args
      */
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         try {
             System.out.println("对DBCP池进行测试");
-            Connection con = LinkMySQLByDBCP.getConnection();
+            Connection con = new LinkMySQLByDBCP().getConnection();
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM user");
             System.out.println(rs.next());
@@ -94,5 +159,5 @@ public class LinkMySQLByDBCP {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

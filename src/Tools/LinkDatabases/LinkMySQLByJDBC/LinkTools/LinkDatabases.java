@@ -1,8 +1,10 @@
 package Tools.LinkDatabases.LinkMySQLByJDBC.LinkTools;
 
+import Tools.LinkDatabases.DAO.LinkDatabase;
+
 import java.sql.*;
 
-public class LinkDatabases {
+public class LinkDatabases implements LinkDatabase {
     // JDBC 驱动名及数据库 URL
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://localhost:3306/javaDatabase?useSSL=false&serverTimezone=UTC";
@@ -29,6 +31,7 @@ public class LinkDatabases {
         );
     }
 
+    @Override
     public Connection getConnection() throws SQLException {
         this.createConnection();
         if (connection == null) {
@@ -60,6 +63,8 @@ public class LinkDatabases {
         return this.statement;
     }
 
+
+    @Override
     public boolean saveData(String str) throws SQLException {
         if (this.statement == null) {
             return false;
@@ -70,6 +75,7 @@ public class LinkDatabases {
         }
     }
 
+    @Override
     public boolean updateData(String sql) throws SQLException {
         if (this.statement == null) {
             return false;
@@ -81,10 +87,9 @@ public class LinkDatabases {
                 this.statement.executeUpdate(sql);
                 return true;
             }
-
         }
     }
-
+    @Override
     public ResultSet getInformation(String sql) throws SQLException {
         //System.out.println("Tools.LinkDatabases.LinkMySQLByJDBC.LinkTools.LinkDatabases" + sql);
         ResultSet resultSet = this.statement.executeQuery(sql);

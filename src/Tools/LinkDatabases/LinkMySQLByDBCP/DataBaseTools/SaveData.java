@@ -1,25 +1,25 @@
 package Tools.LinkDatabases.LinkMySQLByDBCP.DataBaseTools;
 
-import Tools.LinkDatabases.LinkMySQLByJDBC.LinkTools.LinkDatabases;
+import Tools.LinkDatabases.LinkMySQLByDBCP.LinkTools.LinkMySQLByDBCP;
 
 import java.sql.SQLException;
 
 public class SaveData {
-    private LinkDatabases linkDatabases = null;
+    private LinkMySQLByDBCP linkDatabases = null;
 
     private String sql = null;
 
     private boolean key = false;
 
     public void createLinkDatabases() throws ClassNotFoundException, SQLException {
-        this.linkDatabases = new LinkDatabases();
+        this.linkDatabases = new LinkMySQLByDBCP();
     }
 
-    public LinkDatabases getLinkDatabases() {
+    public LinkMySQLByDBCP getLinkDatabases() {
         return linkDatabases;
     }
 
-    public void setLinkDatabases(LinkDatabases linkDatabases) {
+    public void setLinkDatabases(LinkMySQLByDBCP linkDatabases) {
         this.linkDatabases = linkDatabases;
     }
 
