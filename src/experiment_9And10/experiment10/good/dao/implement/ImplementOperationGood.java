@@ -2,6 +2,7 @@ package experiment_9And10.experiment10.good.dao.implement;
 
 import Tools.LinkDatabases.LinkMySQLByJDBC.DataBaseTools.GetResultSet;
 import Tools.LinkDatabases.LinkMySQLByJDBC.DataBaseTools.SaveData;
+import Tools.LinkDatabases.LinkMySQLByJDBC.DataBaseTools.UpdateData;
 import Tools.ReturnInformation.ReturnInformation;
 import experiment_1And2.experiment2.Good;
 import experiment_9And10.experiment10.good.dao.Interface.OperationGood;
@@ -52,8 +53,53 @@ public class ImplementOperationGood implements OperationGood {
 
     //修改商品信息
     @Override
-    public ReturnInformation resetGood(Good newGood) {
-        return null;
+    public ReturnInformation resetGood(Good newGood) throws SQLException, ClassNotFoundException {
+        String sql = null;
+        ReturnInformation returnInformation = null;
+        if(newGood == null) {
+            returnInformation = new ReturnInformation(
+                    "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.resetGood",
+                    "传入的商品对象为空",
+                    "修改商品失败！",
+                    "fail");
+        } else {
+            returnInformation = this.goodIsExistence(Integer.valueOf(newGood.getGoodID()) + "");
+            if (returnInformation.getResult().equals("success")) {
+                //商品存在
+                sql = "update good set " +
+                        "goodName = \'" + newGood.getGoodName() + "\', " +
+                        "goodPrice = " + newGood.getGoodPrice() + ", " +
+                        "goodRigin = \'" + newGood.getGoodRigin() + "\', " +
+                        "productData = \'" + newGood.getProductData() + "\', " +
+                        "monthNumber = " + newGood.getMonthNumber() + ", " +
+                        "shelvesDate = \'" + newGood.getShelvesDate() + "\', " +
+                        "eliminateKey = " + newGood.getEliminateKey() + ", " +
+                        "eliminateKey = \'" + newGood.getEliminateKey() + "\' " +
+                        "where goodID = " + newGood.getGoodID() + ";";
+                UpdateData updateData = new UpdateData(sql);
+                if (updateData.isKey()) {
+                    returnInformation = new ReturnInformation(
+                            "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.addGood",
+                            "修改数据成功",
+                            "修改商品成功！",
+                            "success");
+                } else {
+                    returnInformation = new ReturnInformation(
+                            "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.addGood",
+                            "修改数据失败",
+                            "修改数据出错！",
+                            "fail");
+                }
+            } else {
+                //商品不存在
+                returnInformation = new ReturnInformation(
+                        "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.resetGood",
+                        "修改数据失败",
+                        "修改商品失败！",
+                        "fail");
+            }
+        }
+        return returnInformation;
     }
 
     //修改价格

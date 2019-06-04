@@ -12,7 +12,7 @@ public interface OperationGood {
     public ReturnInformation addGood(Good good) throws SQLException, ClassNotFoundException;
 
     //修改商品信息
-    public ReturnInformation resetGood(Good newGood);
+    public ReturnInformation resetGood(Good newGood) throws SQLException, ClassNotFoundException;
 
     //修改价格
     public ReturnInformation resetGoodPrice(String goodID, String newPrice);

@@ -79,7 +79,10 @@ public class implementOperationGoodTest {
     }
 
     @Test
-    public void resetGood() {
+    public void resetGood() throws SQLException, ClassNotFoundException {
+        this.getGood().setGoodRigin("澳大利亚");
+        this.setReturnInformation(this.getImplementOperationGood().resetGood(this.getGood()));
+        System.out.println(this.getReturnInformation().toString());
     }
 
     @Test

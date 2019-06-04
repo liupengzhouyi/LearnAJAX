@@ -8,13 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>文件下载</title>
+    <title>DAO</title>
 </head>
 <body>
-
-<a href="../DocFiles/99-形势与政策-全球经济的进与退-终极版本.pdf">
-    文件下载
-</a>
 
 </body>
 </html>
