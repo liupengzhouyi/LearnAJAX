@@ -86,19 +86,27 @@ public class implementOperationGoodTest {
     }
 
     @Test
-    public void resetGoodPrice() {
+    public void resetGoodPrice() throws SQLException, ClassNotFoundException {
+        this.setReturnInformation(this.getImplementOperationGood().resetGoodPrice("1", "12.99"));
+        System.out.println(this.getReturnInformation());
     }
 
     @Test
-    public void eliminateGood() {
+    public void eliminateGood() throws SQLException, ClassNotFoundException {
+        this.setReturnInformation(this.getImplementOperationGood().eliminateGood("1"));
+        System.out.println(this.getReturnInformation());
     }
 
     @Test
-    public void findAllGood() {
+    public void findAllGood() throws SQLException, ClassNotFoundException {
+        this.setReturnInformation(this.getImplementOperationGood().findAllGood());
+        System.out.println(this.getReturnInformation());
     }
 
     @Test
-    public void findAllEliminateGood() {
+    public void findAllEliminateGood() throws SQLException, ClassNotFoundException {
+        this.setReturnInformation(this.getImplementOperationGood().findAllEliminateGood());
+        System.out.println(this.getReturnInformation());
     }
 
     @Test

@@ -136,7 +136,7 @@ public class ImplementOperationGood implements OperationGood {
             returnInformation = this.goodIsExistence(goodID);
             if (returnInformation.getResult().equals("success")) {
                 //商品存在
-                sql = "update good set goodPrice = " + goodID + " where goodID = " + newPrice + ";";
+                sql = "update good set goodPrice = " + newPrice + " where goodID = " + goodID + ";";
                 UpdateData updateData = new UpdateData(sql);
                 if (updateData.isKey()) {
                     returnInformation = new ReturnInformation(
