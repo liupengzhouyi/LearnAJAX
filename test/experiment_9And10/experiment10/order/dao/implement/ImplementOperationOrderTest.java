@@ -86,4 +86,10 @@ public class ImplementOperationOrderTest {
             System.out.println(order.toString());
         }
     }
+
+    @Test
+    public void ordersumber() throws SQLException, ClassNotFoundException {
+        ReturnInformation returnInformation = this.getImplementOperationOrder().ordersumber();
+        System.out.println(returnInformation.toString());
+    }
 }

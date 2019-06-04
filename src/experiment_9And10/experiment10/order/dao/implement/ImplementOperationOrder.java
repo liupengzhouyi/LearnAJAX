@@ -159,6 +159,36 @@ public class ImplementOperationOrder implements operationOrder {
         return returnInformation;
     }
 
+    @Override
+    public ReturnInformation ordersumber() throws SQLException, ClassNotFoundException {
+        ReturnInformation returnInformation = null;
+        String sql = "select orderID from myOrder;";
+        GetResultSet getResultSet = new GetResultSet(sql);
+        if (getResultSet.isKey()) {
+            int number = -1;
+            //获取到数据
+            while(getResultSet.getResultSet().next()) {
+                number = getResultSet.getResultSet().getInt("orderID");
+            }
+            returnInformation = new ReturnInformation(
+                    "experiment_9And10.experiment10.order.dao.implement.ImplementOperationOrder.addOrder",
+                    "获取到数据",
+                    "获取订单数量成功",
+                    "success");
+            returnInformation.setType("int");
+            returnInformation.setObject(number);
+        } else {
+            //没有获取到数据
+            returnInformation = new ReturnInformation(
+                    "experiment_9And10.experiment10.order.dao.implement.ImplementOperationOrder.addOrder",
+                    "在没在数据库中获取到订单",
+                    "获取订单数量失败",
+                    "fail");
+        }
+
+        return returnInformation;
+    }
+
     /**
     * @Description: 封装Order
     * @Param:  封装Order

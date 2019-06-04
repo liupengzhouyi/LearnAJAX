@@ -1,5 +1,8 @@
 package experiment_1And2.experiment1;
 
+/**
+ * @author liupeng
+ */
 public class ReadArray {
 
     private String string = null;
@@ -18,13 +21,12 @@ public class ReadArray {
         return strings;
     }
 
-    public void setStrings(String[] strings) {
+    private void setStrings(String[] strings) {
         this.strings = strings;
     }
 
     public void init() {
         this.setStrings(this.getString().split("&"));
-
     }
 
     public ReadArray() {
@@ -36,4 +38,5 @@ public class ReadArray {
         this.setString(string);
         this.init();
     }
+
 }

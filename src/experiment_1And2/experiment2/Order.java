@@ -1,5 +1,8 @@
 package experiment_1And2.experiment2;
 
+/**
+ * @author liupeng
+ */
 public class Order {
     //订单编号
     private String orderID;

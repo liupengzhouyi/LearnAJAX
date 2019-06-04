@@ -14,6 +14,8 @@ import java.sql.SQLException;
 
 @WebServlet(name = "GetOrderAndPagingShowServlet", urlPatterns = "/experiment_11And12/experiment11/GetOrderAndPagingShowServlet")
 public class GetOrderAndPagingShowServlet extends HttpServlet {
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession httpSession = request.getSession();
         String strPageNumber = (String) httpSession.getAttribute("pageNumber");
@@ -61,6 +63,7 @@ public class GetOrderAndPagingShowServlet extends HttpServlet {
 
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }

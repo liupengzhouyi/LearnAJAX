@@ -1,5 +1,8 @@
 package experiment_1And2.experiment2;
 
+/**
+ * @author liupeng
+ */
 public class User {
     // 用户名
     private String userName;
@@ -62,6 +65,8 @@ public class User {
                 ", money=" + money +
                 '}';
     }
+
+
 
     public User(String string) {
         if(string.equals("default")) {

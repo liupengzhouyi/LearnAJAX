@@ -3,6 +3,9 @@ package experiment_1And2.experiment1;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author liupeng
+ */
 public class ReadList {
 
     private String string = null;
@@ -25,7 +28,7 @@ public class ReadList {
         this.list = list;
     }
 
-    public void initList() {
+    private void initList() {
         this.list = new ArrayList<String>();
     }
 

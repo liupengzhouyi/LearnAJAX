@@ -3,11 +3,14 @@ package experiment_1And2.experiment1;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author liupeng
+ */
 public class ReadMap {
 
     private Map<String, String> myMap = null;
 
-    public void createMyMap() {
+    private void createMyMap() {
         this.myMap = new HashMap<>();
     }
 

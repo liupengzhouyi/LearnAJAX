@@ -31,4 +31,6 @@ public interface operationOrder {
     //分页显示数据
     public ReturnInformation findOrderPaging(int number, int maxDate) throws SQLException, ClassNotFoundException;
 
+
+    public ReturnInformation ordersumber() throws SQLException, ClassNotFoundException;
 }

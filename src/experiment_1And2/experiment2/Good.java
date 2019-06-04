@@ -1,7 +1,13 @@
 package experiment_1And2.experiment2;
 
+/**
+ * @author liupeng
+ */
 public class Good {
-    // 商品编号
+
+    /**
+     * 商品编号
+     */
     private String goodID = null;
     // 商品原产地
     private String goodRigin = null;

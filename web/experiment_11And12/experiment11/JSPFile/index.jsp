@@ -68,8 +68,8 @@
     }
 %>
 
-    <a href="/experiment_11And12/experiment11/NextPagingServlet">上一页</a>
-    <a href="/experiment_11And12/experiment11/PreviousPagingServlet">下一页</a>
+    <a href="/experiment_11And12/experiment11/PreviousPagingServlet">上一页</a>
+    <a href="/experiment_11And12/experiment11/NextPagingServlet">下一页</a>
 
 </table>
 </body>
