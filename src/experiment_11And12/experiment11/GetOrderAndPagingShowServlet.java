@@ -23,12 +23,9 @@ public class GetOrderAndPagingShowServlet extends HttpServlet {
         ImplementOperationOrder implementOperationOrder = new ImplementOperationOrder();
         ReturnInformation returnInformation = null;
         try {
-            System.out.println(intPageNumber+":"+maxPaging);
             returnInformation = implementOperationOrder.findOrderPaging(intPageNumber, maxPaging);
             if (returnInformation.getResult().equals("success")) {
                 //数据获成功
-                intPageNumber = intPageNumber + 1;
-                httpSession.setAttribute("pageNumber", intPageNumber+"");
                 httpSession.setAttribute("returnInformation", returnInformation);
                 response.sendRedirect("/experiment_11And12/experiment11/JSPFile/index.jsp");
             } else {
