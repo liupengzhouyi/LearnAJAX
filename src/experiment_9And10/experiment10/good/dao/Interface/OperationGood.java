@@ -15,19 +15,19 @@ public interface OperationGood {
     public ReturnInformation resetGood(Good newGood) throws SQLException, ClassNotFoundException;
 
     //修改价格
-    public ReturnInformation resetGoodPrice(String goodID, String newPrice);
+    public ReturnInformation resetGoodPrice(String goodID, String newPrice) throws SQLException, ClassNotFoundException;
 
     //下架商品
-    public ReturnInformation eliminateGood(String goodID);
+    public ReturnInformation eliminateGood(String goodID) throws SQLException, ClassNotFoundException;
 
     //用商品ID查找商品
     public ReturnInformation findGoodByGoodID(String goodID) throws SQLException, ClassNotFoundException;
 
     //查找所有商品
-    public ReturnInformation findAllGood();
+    public ReturnInformation findAllGood() throws SQLException, ClassNotFoundException;
 
     //查找所有下架商品
-    public ReturnInformation findAllEliminateGood();
+    public ReturnInformation findAllEliminateGood() throws SQLException, ClassNotFoundException;
 
     //查找所有没有下架商品
     public ReturnInformation findAllNotEliminateGood() throws SQLException, ClassNotFoundException;

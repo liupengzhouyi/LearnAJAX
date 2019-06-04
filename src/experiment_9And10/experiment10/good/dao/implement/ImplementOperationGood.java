@@ -1,5 +1,7 @@
 package experiment_9And10.experiment10.good.dao.implement;
 
+import Tools.DateTime.GetDate;
+import Tools.DateTime.GetDateTime;
 import Tools.LinkDatabases.LinkMySQLByJDBC.DataBaseTools.GetResultSet;
 import Tools.LinkDatabases.LinkMySQLByJDBC.DataBaseTools.SaveData;
 import Tools.LinkDatabases.LinkMySQLByJDBC.DataBaseTools.UpdateData;
@@ -13,7 +15,13 @@ import java.util.List;
 
 public class ImplementOperationGood implements OperationGood {
 
-    //增加商品
+    /**
+     * 增加商品
+     * @param good
+     * @return ReturnInformation
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @Override
     public ReturnInformation addGood(Good good) throws SQLException, ClassNotFoundException {
         String sql = null;
@@ -45,13 +53,17 @@ public class ImplementOperationGood implements OperationGood {
                         "添加商品失败！",
                         "fail");
             }
-
         }
-
         return returnInformation;
     }
 
-    //修改商品信息
+    /**
+     * 修改商品信息
+     * @param newGood
+     * @return ReturnInformation
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @Override
     public ReturnInformation resetGood(Good newGood) throws SQLException, ClassNotFoundException {
         String sql = null;
@@ -74,7 +86,7 @@ public class ImplementOperationGood implements OperationGood {
                         "monthNumber = " + newGood.getMonthNumber() + ", " +
                         "shelvesDate = \'" + newGood.getShelvesDate() + "\', " +
                         "eliminateKey = " + newGood.getEliminateKey() + ", " +
-                        "eliminateKey = \'" + newGood.getEliminateKey() + "\' " +
+                        "eliminateDate = \'" + newGood.getEliminateDate() + "\' " +
                         "where goodID = " + newGood.getGoodID() + ";";
                 UpdateData updateData = new UpdateData(sql);
                 if (updateData.isKey()) {
@@ -102,31 +114,200 @@ public class ImplementOperationGood implements OperationGood {
         return returnInformation;
     }
 
-    //修改价格
+    /**
+     * 修改价格
+     * @param goodID
+     * @param newPrice
+     * @return ReturnInformation
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @Override
-    public ReturnInformation resetGoodPrice(String goodID, String newPrice) {
-        return null;
+    public ReturnInformation resetGoodPrice(String goodID, String newPrice) throws SQLException, ClassNotFoundException {
+        String sql = null;
+        ReturnInformation returnInformation = null;
+        if(goodID.equals(null)||newPrice.equals(null)) {
+            returnInformation = new ReturnInformation(
+                    "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.resetGoodPrice",
+                    "传入的对象为空",
+                    "修改商品失败！",
+                    "fail");
+        } else {
+            returnInformation = this.goodIsExistence(goodID);
+            if (returnInformation.getResult().equals("success")) {
+                //商品存在
+                sql = "update good set goodPrice = " + goodID + " where goodID = " + newPrice + ";";
+                UpdateData updateData = new UpdateData(sql);
+                if (updateData.isKey()) {
+                    returnInformation = new ReturnInformation(
+                            "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.resetGoodPrice",
+                            "修改数据成功",
+                            "修改商品成功！",
+                            "success");
+                } else {
+                    returnInformation = new ReturnInformation(
+                            "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.resetGoodPrice",
+                            "修改数据失败",
+                            "修改数据出错！",
+                            "fail");
+                }
+            } else {
+                //商品不存在
+                returnInformation = new ReturnInformation(
+                        "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.resetGoodPrice",
+                        "修改数据失败",
+                        "修改商品失败！",
+                        "fail");
+            }
+        }
+        return returnInformation;
     }
 
-    //下架商品
+    /**
+     * 下架商品
+     * @param goodID
+     * @return ReturnInformation
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @Override
-    public ReturnInformation eliminateGood(String goodID) {
-        return null;
+    public ReturnInformation eliminateGood(String goodID) throws SQLException, ClassNotFoundException {
+        String sql = null;
+        ReturnInformation returnInformation = null;
+        if(goodID.equals(null)) {
+            returnInformation = new ReturnInformation(
+                    "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.resetGoodPrice",
+                    "传入的对象为空",
+                    "修改商品失败！",
+                    "fail");
+        } else {
+            returnInformation = this.goodIsExistence(goodID);
+            if (returnInformation.getResult().equals("success")) {
+                //商品存在
+                sql = "update good set eliminateKey = 1, eliminateDate = \'" + new GetDate().getMyDaye() + "\' where goodID = " + goodID + ";";
+                UpdateData updateData = new UpdateData(sql);
+                if (updateData.isKey()) {
+                    returnInformation = new ReturnInformation(
+                            "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.resetGoodPrice",
+                            "修改数据成功",
+                            "修改商品成功！",
+                            "success");
+                } else {
+                    returnInformation = new ReturnInformation(
+                            "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.resetGoodPrice",
+                            "修改数据失败",
+                            "修改数据出错！",
+                            "fail");
+                }
+            } else {
+                //商品不存在
+                returnInformation = new ReturnInformation(
+                        "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.resetGoodPrice",
+                        "修改数据失败",
+                        "修改商品失败！",
+                        "fail");
+            }
+        }
+        return returnInformation;
     }
 
-    //查找所有商品
+    /**
+     * 查找所有商品
+     * @return ReturnInformation
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @Override
-    public ReturnInformation findAllGood() {
-        return null;
+    public ReturnInformation findAllGood() throws SQLException, ClassNotFoundException {
+        String sql = null;
+        ReturnInformation returnInformation = null;
+        sql = "select * from good;";
+        GetResultSet getResultSet = new GetResultSet(sql);
+        if (getResultSet.isKey()) {
+            List<Good> list = new ArrayList<Good>();
+            while(getResultSet.getResultSet().next()) {
+                Good good = new Good();
+                good.setGoodID(getResultSet.getResultSet().getString("goodID"));
+                good.setGoodName(getResultSet.getResultSet().getString("goodName"));
+                good.setGoodPrice(getResultSet.getResultSet().getDouble("goodPrice"));
+                good.setGoodRigin(getResultSet.getResultSet().getString("goodRigin"));
+                good.setProductData(getResultSet.getResultSet().getString("productData"));
+                good.setMonthNumber(getResultSet.getResultSet().getInt("monthNumber"));
+                good.setShelvesDate(getResultSet.getResultSet().getString("shelvesDate"));
+                good.setEliminateKey(getResultSet.getResultSet().getInt("eliminateKey"));
+                good.setEliminateDate(getResultSet.getResultSet().getString("eliminateDate"));
+                list.add(good);
+            }
+            returnInformation = new ReturnInformation(
+                    "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.findAllEliminateGood",
+                    "null",
+                    "获取商品成功！",
+                    "success");
+            returnInformation.setType("List<Good>");
+            returnInformation.setObject(list);
+        } else {
+            //没有获取
+            returnInformation = new ReturnInformation(
+                    "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.findAllEliminateGood",
+                    "没有商品",
+                    "获取商品失败！",
+                    "fail");
+        }
+        return returnInformation;
     }
 
-    //查找所有下架商品
+
+    /**
+     * 查找所有下架商品
+     * @return ReturnInformation
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @Override
-    public ReturnInformation findAllEliminateGood() {
-        return null;
+    public ReturnInformation findAllEliminateGood() throws SQLException, ClassNotFoundException {
+        String sql = null;
+        ReturnInformation returnInformation = null;
+        sql = "select * from good where eliminateKey = 1;";
+        GetResultSet getResultSet = new GetResultSet(sql);
+        if (getResultSet.isKey()) {
+            List<Good> list = new ArrayList<Good>();
+            while(getResultSet.getResultSet().next()) {
+                Good good = new Good();
+                good.setGoodID(getResultSet.getResultSet().getString("goodID"));
+                good.setGoodName(getResultSet.getResultSet().getString("goodName"));
+                good.setGoodPrice(getResultSet.getResultSet().getDouble("goodPrice"));
+                good.setGoodRigin(getResultSet.getResultSet().getString("goodRigin"));
+                good.setProductData(getResultSet.getResultSet().getString("productData"));
+                good.setMonthNumber(getResultSet.getResultSet().getInt("monthNumber"));
+                good.setShelvesDate(getResultSet.getResultSet().getString("shelvesDate"));
+                good.setEliminateKey(getResultSet.getResultSet().getInt("eliminateKey"));
+                good.setEliminateDate(getResultSet.getResultSet().getString("eliminateDate"));
+                list.add(good);
+            }
+            returnInformation = new ReturnInformation(
+                    "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.findAllEliminateGood",
+                    "null",
+                    "获取商品成功！",
+                    "success");
+            returnInformation.setType("List<Good>");
+            returnInformation.setObject(list);
+        } else {
+            //没有获取
+            returnInformation = new ReturnInformation(
+                    "experiment_9And10.experiment10.good.dao.implement.ImplementOperationGood.findAllEliminateGood",
+                    "没有商品",
+                    "获取商品失败！",
+                    "fail");
+        }
+        return returnInformation;
     }
 
-    //查找所有没有下架商品
+    /**
+     * 查找所有没有下架商品
+     * @return ReturnInformation
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @Override
     public ReturnInformation findAllNotEliminateGood() throws SQLException, ClassNotFoundException {
         String sql = null;
@@ -136,25 +317,16 @@ public class ImplementOperationGood implements OperationGood {
         if (getResultSet.isKey()) {
             List<Good> list = new ArrayList<Good>();
             while(getResultSet.getResultSet().next()) {
-                String goodID = getResultSet.getResultSet().getString("goodID");
-                String goodName = getResultSet.getResultSet().getString("goodName");
-                double goodPrice = getResultSet.getResultSet().getDouble("goodPrice");
-                String goodRigin = getResultSet.getResultSet().getString("goodRigin");
-                String productData = getResultSet.getResultSet().getString("productData");
-                int monthNumber = getResultSet.getResultSet().getInt("monthNumber");
-                String shelvesDate = getResultSet.getResultSet().getString("shelvesDate");
-                int eliminateKey = getResultSet.getResultSet().getInt("eliminateKey");
-                String eliminateDate = getResultSet.getResultSet().getString("eliminateDate");
                 Good good = new Good();
-                good.setGoodID(goodID);
-                good.setGoodName(goodName);
-                good.setGoodPrice(goodPrice);
-                good.setGoodRigin(goodRigin);
-                good.setProductData(productData);
-                good.setMonthNumber(monthNumber);
-                good.setShelvesDate(shelvesDate);
-                good.setEliminateKey(eliminateKey);
-                good.setEliminateDate(eliminateDate);
+                good.setGoodID(getResultSet.getResultSet().getString("goodID"));
+                good.setGoodName(getResultSet.getResultSet().getString("goodName"));
+                good.setGoodPrice(getResultSet.getResultSet().getDouble("goodPrice"));
+                good.setGoodRigin(getResultSet.getResultSet().getString("goodRigin"));
+                good.setProductData(getResultSet.getResultSet().getString("productData"));
+                good.setMonthNumber(getResultSet.getResultSet().getInt("monthNumber"));
+                good.setShelvesDate(getResultSet.getResultSet().getString("shelvesDate"));
+                good.setEliminateKey(getResultSet.getResultSet().getInt("eliminateKey"));
+                good.setEliminateDate(getResultSet.getResultSet().getString("eliminateDate"));
                 list.add(good);
             }
             returnInformation = new ReturnInformation(
@@ -175,6 +347,13 @@ public class ImplementOperationGood implements OperationGood {
         return returnInformation;
     }
 
+    /**
+     * 查看是否有该商品
+     * @param goodID
+     * @return ReturnInformation
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @Override
     public ReturnInformation goodIsExistence(String goodID) throws SQLException, ClassNotFoundException {
         ReturnInformation returnInformation = null;
@@ -211,6 +390,13 @@ public class ImplementOperationGood implements OperationGood {
         return returnInformation;
     }
 
+    /**
+     * 通过商品ID获取商品信息
+     * @param goodID
+     * @return ReturnInformation
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @Override
     public ReturnInformation findGoodByGoodID(String goodID) throws SQLException, ClassNotFoundException {
         String sql = null;
