@@ -17,16 +17,16 @@ public interface operationOrder {
     public ReturnInformation findOrderByOrderID(String orderID) throws SQLException, ClassNotFoundException;
 
     //按时间查找订单
-    public List<Order> findOrderByData(String orderData);
+    public ReturnInformation findOrderByData(String orderData) throws SQLException, ClassNotFoundException;
 
     //按时间范围查找所有订单
-    public List<Order> findOrderByDates(String beginData, String endData);
+    public ReturnInformation findOrderByDates(String beginData, String endData);
 
     //按用户查找所有订单
-    public List<Order> findOrderByUser(User user);
+    public ReturnInformation findOrderByUser(User user) throws SQLException, ClassNotFoundException;
 
     //按商品查找所有订单
-    public List<Order> findOrderByGood(Good good);
+    public ReturnInformation findOrderByGood(Good good) throws SQLException, ClassNotFoundException;
 
     //分页显示数据
     public ReturnInformation findOrderPaging(int number, int maxDate) throws SQLException, ClassNotFoundException;

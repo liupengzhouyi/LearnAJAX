@@ -115,7 +115,7 @@ public class Good {
 
     public Good(String string) {
         if (string.equals("default")) {
-            this.setGoodID("0001");
+            this.setGoodID("1");
             this.setGoodName("巧克力");
             this.setGoodPrice(12.99);
             this.setGoodRigin("美国");

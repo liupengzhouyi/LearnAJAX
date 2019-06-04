@@ -14,6 +14,13 @@ import java.sql.SQLException;
 
 public class ImplementOperationUser implements operationUser {
 
+    /**
+     * 注册用户
+     * @param user
+     * @return
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @Override
     public ReturnInformation addUser(User user) throws SQLException, ClassNotFoundException {
         String sql = "insert into user(userName, userID, passwordValue, registeredDate, money) " +
@@ -43,6 +50,14 @@ public class ImplementOperationUser implements operationUser {
         return returnInformation;
     }
 
+    /**
+     * 重置用户名
+     * @param userID
+     * @param newName
+     * @return ReturnInformation
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @Override
     public ReturnInformation resetUser(String userID, String newName) throws SQLException, ClassNotFoundException {
         String sql = "update user set user.userName = \'" + newName + "\' where userID = \'" + userID + "\';";
@@ -70,6 +85,14 @@ public class ImplementOperationUser implements operationUser {
         return returnInformation;
     }
 
+    /**
+     * 修改密码
+     * @param userID
+     * @param passwordValue
+     * @return ReturnInformation
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @Override
     public ReturnInformation resetUserPassword(String userID, String passwordValue) throws SQLException, ClassNotFoundException {
         String sql = "update user set user.passwordValue = \'" + passwordValue + "\' where userID = \'" + userID + "\';";
@@ -97,6 +120,13 @@ public class ImplementOperationUser implements operationUser {
         return returnInformation;
     }
 
+    /**
+     * 查看余额
+     * @param userID
+     * @return ReturnInformation
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @Override
     public ReturnInformation howMoney(String userID) throws SQLException, ClassNotFoundException {
         String sql = "select money from user where userID = \'" + userID + "\';";
@@ -122,6 +152,14 @@ public class ImplementOperationUser implements operationUser {
         return returnInformation;
     }
 
+    /**
+     * 充值
+     * @param userID
+     * @param money
+     * @return ReturnInformation
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @Override
     public ReturnInformation addMoney(String userID, double money) throws SQLException, ClassNotFoundException {
         ReturnInformation moneyInformation = this.howMoney(userID);
@@ -163,6 +201,14 @@ public class ImplementOperationUser implements operationUser {
         return returnInformation;
     }
 
+    /**
+     * 消费
+     * @param userID
+     * @param money
+     * @return ReturnInformation
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @Override
     public ReturnInformation subMoney(String userID, double money) throws SQLException, ClassNotFoundException {
         ReturnInformation moneyInformation = this.howMoney(userID);
@@ -216,6 +262,13 @@ public class ImplementOperationUser implements operationUser {
         return returnInformation;
     }
 
+    /**
+     * 查找用户
+     * @param userID
+     * @return ReturnInformation
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @Override
     public ReturnInformation getUserByUserID(String userID) throws SQLException, ClassNotFoundException {
         String sql = "select * from user where userID = \'" + userID + "\';";
@@ -271,6 +324,14 @@ public class ImplementOperationUser implements operationUser {
         return returnInformation;
     }
 
+    /**
+     * 登陆
+     * @param userID
+     * @param password
+     * @return ReturnInformation
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @Override
     public ReturnInformation landing(String userID, String password) throws SQLException, ClassNotFoundException {
         String sql = "select passwordValue from user where userID = \'" + userID + "\';";

@@ -1,7 +1,9 @@
 package experiment_9And10.experiment10.order.dao.implement;
 
 import Tools.ReturnInformation.ReturnInformation;
+import experiment_1And2.experiment2.Good;
 import experiment_1And2.experiment2.Order;
+import experiment_1And2.experiment2.User;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -63,7 +65,9 @@ public class ImplementOperationOrderTest {
     }
 
     @Test
-    public void findOrderByData() {
+    public void findOrderByData() throws SQLException, ClassNotFoundException {
+        ReturnInformation returnInformation = this.getImplementOperationOrder().findOrderByData("2019-06-03");
+        System.out.println(returnInformation.toString());
     }
 
     @Test
@@ -71,11 +75,18 @@ public class ImplementOperationOrderTest {
     }
 
     @Test
-    public void findOrderByUser() {
+    public void findOrderByUser()  throws SQLException, ClassNotFoundException{
+        User user = new User("default");
+        user.setUserID("12KJB12312RFVG4");
+        ReturnInformation returnInformation = this.getImplementOperationOrder().findOrderByUser(user);
+        System.out.println(returnInformation.toString());
     }
 
     @Test
-    public void findOrderByGood() {
+    public void findOrderByGood()  throws SQLException, ClassNotFoundException{
+        Good good = new Good("default");
+        ReturnInformation returnInformation = this.getImplementOperationOrder().findOrderByGood(good);
+        System.out.println(returnInformation.toString());
     }
 
     @Test
