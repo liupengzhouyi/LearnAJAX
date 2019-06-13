@@ -19,6 +19,7 @@
     Order order = new Order("default");
     User user = new User("default");
     HttpSession httpSession = request.getSession();
+
     httpSession.setAttribute("good", good);
     httpSession.setAttribute("order", order);
     httpSession.setAttribute("user", user);
@@ -49,7 +50,7 @@
 <br>
 下架日期:${good.eliminateDate}
 <br>
-是否下架:${good.key}
+是否下架:${good.eliminateKey}
 
 <h3>
     用户类

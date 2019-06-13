@@ -198,7 +198,7 @@ ${empty gender}
             <td>${good.productData}</td>
             <td>${good.shelvesDate}</td>
             <td>${good.eliminateDate}</td>
-            <td>${good.key}</td>
+            <td>${good.eliminateKey}</td>
         </tr>
     </c:forEach>
 </table>

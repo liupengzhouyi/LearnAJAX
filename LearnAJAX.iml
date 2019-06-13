@@ -64,5 +64,8 @@
     <orderEntry type="library" exported="" name="commons-pool2-2.6.0" level="project" />
     <orderEntry type="library" exported="" name="ezmorph-1.0.6" level="project" />
     <orderEntry type="library" exported="" name="commons-dbutils-1.4" level="project" />
+    <orderEntry type="library" name="jackson-annotations-2.9.9" level="project" />
+    <orderEntry type="library" name="jackson-core-2.9.9" level="project" />
+    <orderEntry type="library" name="jackson-databind-2.9.9" level="project" />
   </component>
 </module>

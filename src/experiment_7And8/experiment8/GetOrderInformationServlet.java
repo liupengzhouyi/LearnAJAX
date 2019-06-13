@@ -17,10 +17,11 @@ import java.sql.SQLException;
 
 @WebServlet(name = "GetOrderInformationServlet", urlPatterns = "/experiment_7And8/experiment8/GetOrderInformationServlet")
 public class GetOrderInformationServlet extends HttpServlet {
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession httpSession = request.getSession();
         ReturnInformation returnInformation = (ReturnInformation) httpSession.getAttribute("returnInformation");
-        if(returnInformation.getResult().equals("fail")) {
+        if("fail".equals(returnInformation.getResult())) {
             //获取订单失败
             returnInformation = new ReturnInformation(
                     "/experiment_7And8/experiment8/ErrorFile/JSPFile/index.jsp",
@@ -54,7 +55,7 @@ public class GetOrderInformationServlet extends HttpServlet {
                     // 添加成功信息到Session
                     httpSession.setAttribute("returnInformation", returnInformation);
                     // 转发到成功页面
-                    response.sendRedirect("/experiment_7And8/experiment8/Success/JSPFile/index.jspp");
+                    response.sendRedirect("/experiment_7And8/experiment8/Success/JSPFile/index.jsp");
                 }
             }
             catch (SQLException e) {
@@ -85,6 +86,7 @@ public class GetOrderInformationServlet extends HttpServlet {
         }
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }
