@@ -182,4 +182,14 @@ class PersonTest {
         this.testMap();
         System.out.println(this.getString());
     }
+
+    @Test
+    void rePaly() throws IOException {
+        String string = "{\"name\":\"liupeng\",\"age\":23,\"sex\":false,\"data\":\"2019-06-13\"}";
+
+        Person person = this.getObjectMapper().readValue(string, Person.class);
+
+        System.out.println(person.toString());
+
+    }
 }
